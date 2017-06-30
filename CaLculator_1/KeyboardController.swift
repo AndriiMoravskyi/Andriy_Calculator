@@ -15,12 +15,13 @@ enum UtilityButton: Int {
 class KeyboardController: UIViewController {
 
     var onNumTap: ((_ num: Int)->())?
+    var Symbol :((_ Symbol: String)->())?
     
     @IBAction func onNumericTap(button: UIButton) {
         onNumTap?(button.tag)
     }
     
     @IBAction func onUtilityTap(button: UIButton) {
-        onNumTap?(button.tag)
+        Symbol?(button.currentTitle!)
     }
 }
