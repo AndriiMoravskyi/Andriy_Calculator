@@ -8,7 +8,7 @@
 
 import Foundation
 
-class OutputAdapter: OutputProtocol {
+/*class OutputAdapter: OutputProtocol {
     static let shared = OutputAdapter()
     
     var display: DisplayController?
@@ -16,4 +16,13 @@ class OutputAdapter: OutputProtocol {
     func output(value: String) {
         display?.present(value: value)
     }
+}
+*/
+ class OutputAdapter: OutputProtocol {
+  static let shared = OutputAdapter()
+ var display: DisplayController?
+ 
+ func presentResult(result: String){
+ display?.presentResult(value: result)
+ }
 }

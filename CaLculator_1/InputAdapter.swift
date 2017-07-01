@@ -8,7 +8,7 @@
 
 import Foundation
 
-class IntputAdapter: InputProtocol {
+/*class IntputAdapter: InputProtocol {
     static let shared = IntputAdapter()
     
     let brain = Brain.shared
@@ -21,4 +21,27 @@ class IntputAdapter: InputProtocol {
     func input(operation: Operation) {
         brain.input(operation: operation)
     }
+}
+*/
+ class IntputAdapter: InputProtocol
+ {
+ static let shared = IntputAdapter()
+ 
+ let brain = Brain.shared
+ var result:String!
+ 
+func enterNum(_number: Int){
+        if result == nil || result == "0" {
+            result = String(_number)
+        } else{ result = result + "\(_number)"}
+ 
+       brain.EnterEquation(equation: result)
+ }
+ 
+
+func enterUtility(_symbol: String){
+ result = result + _symbol
+ 
+ }
+
 }

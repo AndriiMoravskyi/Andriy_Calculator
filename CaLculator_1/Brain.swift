@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Brain: Model {
+/*class Brain: Model {
     static let shared = Brain()
     
     let output = OutputAdapter.shared
@@ -28,4 +28,23 @@ class Brain: Model {
         //....
         output.output(value: operand)
     }
+}
+*/
+ class Brain: Model {
+ static let shared = Brain()
+ 
+ 
+ let output = OutputAdapter.shared
+
+ var equation: String!
+ 
+ 
+ func EnterEquation(equation: String) {
+ self.equation = equation
+ process()
+ }
+ func process() {
+ 
+ output.presentResult(result: equation)
+ }
 }

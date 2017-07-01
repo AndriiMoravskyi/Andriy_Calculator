@@ -14,7 +14,7 @@ import UIKit
         
         let output = OutputAdapter.shared
         
-        func present(value: String) {
+        func presentResult(value: String) {
             DisplayLab.text = value
         }
         

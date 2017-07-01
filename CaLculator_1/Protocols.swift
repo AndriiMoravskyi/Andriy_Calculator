@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Operation {
+/*enum Operation {
     case pls
     case min
     case mul
@@ -28,3 +28,17 @@ protocol OutputProtocol {
 protocol Model {
     func input(operation: Operation)
 }
+ */
+ protocol InputProtocol {
+ func enterNum(_number: Int)
+ func enterUtility(_symbol: String)
+ }
+ 
+ protocol OutputProtocol {
+ func presentResult(result: String)
+ }
+ 
+ protocol Model {
+ func EnterEquation(equation: String)
+ 
+ } 
