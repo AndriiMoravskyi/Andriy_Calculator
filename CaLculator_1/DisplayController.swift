@@ -12,6 +12,7 @@ import UIKit
         
         @IBOutlet weak var DisplayLab: UILabel!
         
+        
         let output = OutputAdapter.shared
         
         func presentResult(value: String) {
