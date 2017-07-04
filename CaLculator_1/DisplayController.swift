@@ -1,3 +1,4 @@
+
 //
 //  DisplayController.swift
 //  CaLculator_1
@@ -10,10 +11,11 @@ import UIKit
 
     class DisplayController: UIViewController {
         
+       
         @IBOutlet weak var DisplayLab: UILabel!
-        
-        
-        let output = OutputAdapter.shared
+       
+               
+       let output = OutputAdapter.shared
         
         func presentResult(value: String) {
             DisplayLab.text = value

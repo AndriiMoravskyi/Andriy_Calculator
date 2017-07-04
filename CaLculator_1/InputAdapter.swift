@@ -28,20 +28,27 @@ import Foundation
  static let shared = IntputAdapter()
  
  let brain = Brain.shared
- var result:String!
+ var input:String!
  
 func enterNum(_number: Int){
-        if result == nil || result == "0" {
-            result = String(_number)
-        } else{ result = result + "\(_number)"}
+        if input == nil || input == "0" {
+            input = String(_number)
+        } else{ input = input + "\(_number)"}
  
-       brain.EnterEquation(equation: result)
- }
+       brain.EnterEquation(equation: input)
+    
+        }
  
 
 func enterUtility(_symbol: String){
- result = result + _symbol
- 
- }
-
+    if _symbol == "=" {
+        input = ""
+        brain.Caculation(calculation: {result in input = result})
+    }
+    else {
+        
+        input = input + _symbol
+        brain.EnterEquation(equation: input)
+        }
+   }
 }
