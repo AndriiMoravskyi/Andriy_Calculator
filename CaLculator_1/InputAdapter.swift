@@ -37,7 +37,7 @@ func enterNum(_number: Int){
  
        brain.EnterEquation(equation: input)
     
-        }
+    }
  
 
 func enterUtility(_symbol: String){
