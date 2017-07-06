@@ -27,6 +27,8 @@ func Change (input : String) -> String {
     Mod = Mod1.replacingOccurrences(of: "÷", with: "/")
     Mod1 = Mod
     Mod = Mod1.replacingOccurrences(of: "^", with: "**")
+    Mod1 = Mod
+    Mod = Mod1.replacingOccurrences(of: "√", with: "sqrt")
     return Mod
 }
   

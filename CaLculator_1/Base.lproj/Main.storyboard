@@ -379,6 +379,9 @@
                                                 <state key="normal" title="√">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="onSymbolTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="LqO-dx-y5R"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xw5-nr-r2n">
                                                 <rect key="frame" x="86" y="0.0" width="84" height="92.333333333333314"/>
@@ -416,6 +419,9 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="2gs-vr-p9y" firstAttribute="leading" secondItem="Zy3-cS-xeg" secondAttribute="trailing" constant="88" id="HTC-Y8-y2S"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
