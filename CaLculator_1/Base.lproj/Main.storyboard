@@ -26,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="-612" y="123"/>
         </scene>
-        <!--Panel Controller-->
+        <!--Calculator-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="PanelController" customModule="CaLculator_1" customModuleProvider="target" sceneMemberID="viewController">
@@ -64,7 +64,7 @@
                             <constraint firstAttribute="leadingMargin" secondItem="kpL-9h-iES" secondAttribute="leading" id="w6V-k1-b2v"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="CO6-bg-Vec"/>
+                    <navigationItem key="navigationItem" title="Calculator" id="CO6-bg-Vec"/>
                     <connections>
                         <outlet property="view" destination="N0Q-Ai-sxp" id="h7o-26-bkg"/>
                     </connections>
