@@ -8,8 +8,8 @@
 
 import Foundation
 
-/* 
- enum symbolsUtility: Int{
+
+ enum Operation: Int{
  case pls = 10001
  case mns = 10002
  case mul = 10003
@@ -27,10 +27,10 @@ import Foundation
  case dot = 10015
  }
  
- */
+
  protocol InputProtocol {
- func enterNum(_number: Int)
- func enterUtility(_symbol: String)
+ func enterNum(_ number: Int)
+ func enterUtility(_ symbol: Int)
  }
  
  protocol OutputProtocol {
@@ -38,6 +38,6 @@ import Foundation
  }
  
  protocol Model {
- func EnterEquation(equation: String)
+ func enterEquation(equation: String)
  
  } 

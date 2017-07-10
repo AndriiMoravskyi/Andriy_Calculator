@@ -16,7 +16,7 @@ import Foundation
 
  var equation: String!
     
- func EnterEquation(equation: String) {
+ func enterEquation(equation: String) {
  self.equation = equation
  output.presentResult(result: equation)
  }
@@ -31,7 +31,6 @@ func Change (input : String) -> String {
     Mod = Mod1.replacingOccurrences(of: "√", with: "sqrt")
     return Mod
 }
-  
     func Caculation(calculation: (String)->()){
     
     let Mod = Change(input: equation)

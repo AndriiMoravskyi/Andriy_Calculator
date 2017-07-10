@@ -32,10 +32,10 @@ class PanelController: UIViewController {
     }
     }
     func onNumericTap(num: Int) {
-        input.enterNum(_number: num)
+        input.enterNum(num)
     }
-   func onSymbolTap(symbol: String) {
-            input.enterUtility(_symbol: symbol)
+   func onSymbolTap(symbol: Int) {
+            input.enterUtility(symbol)
         }
 }
 

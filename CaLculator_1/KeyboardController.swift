@@ -7,21 +7,18 @@
 //
 
 import UIKit
-enum UtilityButton: Int {
-    case dot = 10001
-    case equal = 10002
-}
+
 
 class KeyboardController: UIViewController {
 
     var onNumTap: ((_ num: Int)->())?
-    var SymbolTap :((_ symbol: String)->())?
+    var SymbolTap :((_ symbol: Int)->())?
     
     @IBAction func onNumericTap(button: UIButton) {
         onNumTap?(button.tag)
     }
     
     @IBAction func onSymbolTap(button: UIButton) {
-        SymbolTap?(button.currentTitle!)
+        SymbolTap?(button.tag)
     }
 }
