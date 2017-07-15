@@ -12,7 +12,7 @@ class PanelController: UIViewController {
 
     var display: DisplayController!
     var keyboard: KeyboardController!
-    let input = IntputAdapter.shared
+    let input = InputAdapter.shared
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -35,7 +35,7 @@ class PanelController: UIViewController {
         input.enterNum(num)
     }
    func onSymbolTap(symbol: Int) {
-            input.enterUtility(symbol)
+            input.enterUtility(Operation(rawValue: symbol)!)
         }
 }
 

@@ -23,9 +23,9 @@ import Foundation
     }
 }
 */
- class IntputAdapter: InputProtocol
+ class InputAdapter: InputProtocol
  {
- static let shared = IntputAdapter()
+ static let shared = InputAdapter()
  let brain = Brain.shared
  var input:String!
  
@@ -39,34 +39,57 @@ func enterNum(_ number: Int){
     }
  
 
-func enterUtility(_ symbol: Int){
+func enterUtility(_ symbol: Operation){
     
         switch symbol {
-        case Operation.pls.rawValue : input = input + ("+")
+        case .pls : input = input + ("+")
             brain.enterEquation(equation: input)
-        case Operation.mns.rawValue : input = input + ("-")
+        case .mns : input = input + ("-")
             brain.enterEquation(equation: input)
-        case Operation.mul.rawValue : input = input + ("×")
+        case .mul : input = input + ("×")
             brain.enterEquation(equation: input)
-        case Operation.div.rawValue : input = input + ("÷")
+        case .div : input = input + ("÷")
             brain.enterEquation(equation: input)
-        case Operation.pow.rawValue : input = input + ("^")
+        case .pow : input = input + ("^")
             brain.enterEquation(equation: input)
-        case Operation.sqrt.rawValue : input = input + ("√")
+        case .sqrt : input = input + ("√")
             brain.enterEquation(equation: input)
-        case Operation.sin.rawValue : input = input + ("sin")
+        case .sin : input = input + ("sin")
             brain.enterEquation(equation: input)
-        case Operation.cos.rawValue : input = input + ("cos")
+        case .cos :
+            if input == nil
+            {input = "cos"}
+            else {input = input + ("cos")}
             brain.enterEquation(equation: input)
-        case Operation.log.rawValue : input = input + ("log")
+        case .log : input = input + ("log")
             brain.enterEquation(equation: input)
-        case Operation.leftBracket.rawValue : input = input + ("(")
+        case .leftBracket : input = input + ("(")
             brain.enterEquation(equation: input)
-        case Operation.rightBracket.rawValue :input = input + (")")
+        case .rightBracket :input = input + (")")
             brain.enterEquation(equation: input)
+        //case .sign:
+        case .dot :
+            if input == nil || input == "0"
+        {input = ("0.")
+            brain.enterEquation(equation: input)
+            }
+                else
+        {input  = input + "."
+            brain.enterEquation(equation: input)}
         //case Operation.pi.rawValue : brain.inputPi()
-        case Operation.equal.rawValue : input = ""
-        brain.Caculation(calculation: {result in input = result})        //case Operation.dot.rawValue : brain.inputDot()
+        case .equal : input = " "
+        brain.Caculation(calculation: {result in input = result})
+        case.clear :
+            input = " "
+            brain.enterEquation(equation: "0")
+        case.clearS :
+            if input.characters.count > 1 {
+                input.characters.removeLast()
+                brain.enterEquation(equation: input)
+            } else{input = " "
+            brain.enterEquation(equation: "0")}
+
+        //case Operation.dot.rawValue :
         default : break
        
         }

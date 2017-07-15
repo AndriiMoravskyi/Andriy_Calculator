@@ -25,12 +25,14 @@ import Foundation
  case equal = 10013
  case clear = 10014
  case dot = 10015
+ case clearS = 10017
+case sign = 10018
  }
  
 
  protocol InputProtocol {
  func enterNum(_ number: Int)
- func enterUtility(_ symbol: Int)
+ func enterUtility(_ symbol: Operation)
  }
  
  protocol OutputProtocol {
