@@ -28,6 +28,7 @@ import Foundation
  static let shared = InputAdapter()
  let brain = Brain.shared
  var input:String!
+ var dottap = false
  
 func enterNum(_ number: Int){
         if input == nil || input == "0" {
@@ -42,56 +43,120 @@ func enterNum(_ number: Int){
 func enterUtility(_ symbol: Operation){
     
         switch symbol {
-        case .pls : input = input + ("+")
+        case .pls :
+            if input == nil || input == "" || input == "0"
+            {input = "0"}
+            else if  input.characters.last == "+" || input.characters.last == "-" || input.characters.last == "×" || input.characters.last == "÷" || input.characters.last == "^"  {
+                input.characters.removeLast()
+                input = input + ("+")
+            }
+            else {
+                input = input + ("+")
+            }
             brain.enterEquation(equation: input)
-        case .mns : input = input + ("-")
+        case .mns :
+            if input == nil || input == "" || input == "0"
+            {input = "-"}
+        else if  input.characters.last == "+" || input.characters.last == "-" || input.characters.last == "×" || input.characters.last == "÷" || input.characters.last == "^" {
+            input.characters.removeLast()
+            input = input + ("-")
+        }
+        else {
+        input = input + ("-")
+        }
             brain.enterEquation(equation: input)
-        case .mul : input = input + ("×")
+        case .mul :
+            if input == nil || input == "" || input == "0"
+            {input = "0"}
+            else if  input.characters.last == "+" || input.characters.last == "-" || input.characters.last == "×" || input.characters.last == "÷" || input.characters.last == "^"{
+                input.characters.removeLast()
+                input = input + ("×")
+            }
+                    else{input = input + ("×")}
             brain.enterEquation(equation: input)
-        case .div : input = input + ("÷")
+        case .div :
+            if input == nil || input == "" || input == "0"
+            {input = "0"}
+            else if  input.characters.last == "+" || input.characters.last == "-" || input.characters.last == "×" || input.characters.last == "÷" || input.characters.last == "^"{
+                input.characters.removeLast()
+                input = input + ("÷")
+            }
+
+        else{
+            input = input + ("÷")}
             brain.enterEquation(equation: input)
-        case .pow : input = input + ("^")
+        case .pow :
+        if input == nil || input == "" || input == "0"
+        {input = "0"}
+        else if  input.characters.last == "+" || input.characters.last == "-" || input.characters.last == "×" || input.characters.last == "÷" || input.characters.last == "^" {
+            input.characters.removeLast()
+            input = input + ("^")
+        }
+        else{input = input + ("^")}
+        brain.enterEquation(equation: input)
+
+        brain.enterEquation(equation: input)
             brain.enterEquation(equation: input)
-        case .sqrt : input = input + ("√")
+        case .sqrt :
+            if input == nil
+            {input = "√"}
+            else {input = input + ("√")}
             brain.enterEquation(equation: input)
-        case .sin : input = input + ("sin")
+        case .sin :
+            if input == nil
+            {input = "sin("}
+            else {input = input + ("sin(")}
             brain.enterEquation(equation: input)
         case .cos :
-            if input == nil
-            {input = "cos"}
-            else {input = input + ("cos")}
+            if input == nil || input == "" || input == "0"
+            {input = "cos("}
+            else {input = input + ("cos(")}
             brain.enterEquation(equation: input)
-        case .log : input = input + ("log")
+        case .log : input = input + ("ln(")
             brain.enterEquation(equation: input)
-        case .leftBracket : input = input + ("(")
+        case .leftBracket :if input == nil || input == "" || input == "0"
+        {input = "("}
+        else{
+            input = input + ("(")}
             brain.enterEquation(equation: input)
         case .rightBracket :input = input + (")")
             brain.enterEquation(equation: input)
         //case .sign:
         case .dot :
-            if input == nil || input == "0"
-        {input = ("0.")
-            brain.enterEquation(equation: input)
+           validateDot()
+           brain.enterEquation(equation: input)        //case Operation.pi.rawValue : brain.inputPi()
+        case .equal :if input == nil || input == "" || input == "0"
+        {input = ""}
+        else {input = ""
+         brain.Caculation(calculation: {result in input = result})
             }
-                else
-        {input  = input + "."
-            brain.enterEquation(equation: input)}
-        //case Operation.pi.rawValue : brain.inputPi()
-        case .equal : input = " "
-        brain.Caculation(calculation: {result in input = result})
         case.clear :
-            input = " "
+            input = ""
             brain.enterEquation(equation: "0")
         case.clearS :
             if input.characters.count > 1 {
                 input.characters.removeLast()
                 brain.enterEquation(equation: input)
-            } else{input = " "
+            } else{input = ""
             brain.enterEquation(equation: "0")}
 
         //case Operation.dot.rawValue :
         default : break
        
+        }
+    }
+    func validateDot() {
+        if input == nil || input == "0" || input == "" {
+            input = "0."
+            dottap = true
+        } else if input.characters.last != "." && dottap == false {
+            if input.characters.last! >= "0" && input.characters.last! <= "9" {
+                input! += "."
+                dottap = true
+            } else if input.characters.last == "(" {
+                input = input + "0."
+               dottap = true
+            }
         }
     }
 }

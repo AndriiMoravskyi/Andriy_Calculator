@@ -25,8 +25,9 @@ import Foundation
  case equal = 10013
  case clear = 10014
  case dot = 10015
+ case sign = 10016
  case clearS = 10017
-case sign = 10018
+
  }
  
 

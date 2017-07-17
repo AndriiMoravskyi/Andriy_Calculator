@@ -193,14 +193,19 @@ class infixparser {
                     
                      while opertionStack.peek != "("
                     {
-                        if !opertionStack.empty {
+                        if !opertionStack.empty //&& opertionStack.peek.precedence < token.precedence
+                        {
                             var res = 0.0
                             switch opertionStack.peek {
                             case "+":
                                 res = Double(numbersStack.pop())! + Double(numbersStack.pop())!
                             case "-":
-                                res = Double(numbersStack.selfvalue[numbersStack.selfvalue.count-2])! - Double(numbersStack.pop())!
-                                _ = numbersStack.pop()
+                                if Double(numbersStack.selfvalue[numbersStack.selfvalue.count-2]) != nil
+                                { res = Double(numbersStack.selfvalue[numbersStack.selfvalue.count-2])! - Double(numbersStack.pop())!
+                                    _ = numbersStack.pop()}
+                                else {
+                                    res = 0.0 - Double(numbersStack.pop())!
+                                }
                             case "^":
                                 res = pow (Double(numbersStack.selfvalue[numbersStack.selfvalue.count-2])!, Double(numbersStack.pop())!)
                                 _ = numbersStack.pop()
@@ -235,8 +240,12 @@ class infixparser {
                         case "+":
                             res = Double(numbersStack.pop())! + Double(numbersStack.pop())!
                         case "-":
-                            res = Double(numbersStack.selfvalue[numbersStack.selfvalue.count-2])! - Double(numbersStack.pop())!
-                            _ = numbersStack.pop()
+                            if Double(numbersStack.selfvalue[numbersStack.selfvalue.count-2]) != nil
+                            { res = Double(numbersStack.selfvalue[numbersStack.selfvalue.count-2])! - Double(numbersStack.pop())!
+                                _ = numbersStack.pop()}
+                            else {
+                                res = 0.0 - Double(numbersStack.pop())!
+                            }
                         case "*":
                             res = Double(numbersStack.pop())! * Double(numbersStack.pop())!
                         case "/":
@@ -262,12 +271,16 @@ class infixparser {
         }
         while !opertionStack.empty {
             var res = 0.0
-            switch opertionStack.peek {
+            switch opertionStack.peek  {
             case "+":
                 res = Double(numbersStack.pop())! + Double(numbersStack.pop())!
             case "-":
-                res = Double(numbersStack.selfvalue[numbersStack.selfvalue.count-2])! - Double(numbersStack.pop())!
-                _ = numbersStack.pop()
+                if Double(numbersStack.selfvalue[numbersStack.selfvalue.count-2]) != nil
+                { res = Double(numbersStack.selfvalue[numbersStack.selfvalue.count-2])! - Double(numbersStack.pop())!
+                    _ = numbersStack.pop()}
+                else {
+                    res = 0.0 - Double(numbersStack.pop())!
+                }
             case "*":
                 res = Double(numbersStack.pop())! * Double(numbersStack.pop())!
             case "/":

@@ -77,33 +77,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3k-Eg-nH6">
-                                <rect key="frame" x="16" y="0.0" width="342" height="100"/>
-                                <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IuB-F7-dfy">
+                                <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Vp-9v-eOs">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxU-90-QHB">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="pxU-90-QHB" secondAttribute="trailing" id="Dfb-WL-SyB"/>
+                                            <constraint firstItem="pxU-90-QHB" firstAttribute="leading" secondItem="6Vp-9v-eOs" secondAttribute="leading" id="NY9-pI-FhR"/>
+                                            <constraint firstItem="pxU-90-QHB" firstAttribute="top" secondItem="6Vp-9v-eOs" secondAttribute="top" id="PRt-Ok-i8y"/>
+                                            <constraint firstAttribute="bottom" secondItem="pxU-90-QHB" secondAttribute="bottom" id="m07-WU-6Qv"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="1lQ-Vj-Rda"/>
+                                    <constraint firstItem="6Vp-9v-eOs" firstAttribute="top" secondItem="IuB-F7-dfy" secondAttribute="top" id="7GO-zI-DI5"/>
+                                    <constraint firstItem="6Vp-9v-eOs" firstAttribute="centerY" secondItem="IuB-F7-dfy" secondAttribute="centerY" id="9hX-7m-krc"/>
+                                    <constraint firstItem="6Vp-9v-eOs" firstAttribute="width" relation="greaterThanOrEqual" secondItem="IuB-F7-dfy" secondAttribute="width" id="F6X-C0-nzx"/>
+                                    <constraint firstAttribute="trailing" secondItem="6Vp-9v-eOs" secondAttribute="trailing" id="KwK-MF-0yE"/>
+                                    <constraint firstAttribute="bottom" secondItem="6Vp-9v-eOs" secondAttribute="bottom" id="cII-gL-uKv"/>
+                                    <constraint firstItem="6Vp-9v-eOs" firstAttribute="centerX" secondItem="IuB-F7-dfy" secondAttribute="centerX" id="iV3-XF-Xmw"/>
+                                    <constraint firstItem="6Vp-9v-eOs" firstAttribute="leading" secondItem="IuB-F7-dfy" secondAttribute="leading" id="pS1-9G-Uc5"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="e3k-Eg-nH6" firstAttribute="top" secondItem="8yn-QD-nKI" secondAttribute="bottom" id="D7H-yJ-ENR"/>
-                            <constraint firstItem="e3k-Eg-nH6" firstAttribute="top" secondItem="8yn-QD-nKI" secondAttribute="bottom" id="L6X-Y1-DkY"/>
-                            <constraint firstItem="Nkh-O0-Zb8" firstAttribute="top" secondItem="e3k-Eg-nH6" secondAttribute="bottom" id="Pdg-Bs-8in"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="e3k-Eg-nH6" secondAttribute="leading" id="Vow-zK-QxB"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="e3k-Eg-nH6" secondAttribute="trailing" id="uYK-z8-Jj9"/>
+                            <constraint firstAttribute="trailing" secondItem="IuB-F7-dfy" secondAttribute="trailing" id="02S-rY-O04"/>
+                            <constraint firstItem="IuB-F7-dfy" firstAttribute="leading" secondItem="yFU-HF-Os5" secondAttribute="leading" id="M3f-fP-X6M"/>
+                            <constraint firstItem="Nkh-O0-Zb8" firstAttribute="top" secondItem="IuB-F7-dfy" secondAttribute="bottom" id="PW9-sK-Jgc"/>
+                            <constraint firstItem="IuB-F7-dfy" firstAttribute="top" secondItem="8yn-QD-nKI" secondAttribute="bottom" id="fWv-4Q-LXW"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="DisplayLab" destination="e3k-Eg-nH6" id="Lmq-50-lbB"/>
+                        <outlet property="DisplayLab" destination="pxU-90-QHB" id="fBY-ER-eIp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YqL-Q8-nPN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="824.63768115942037" y="-189.13043478260872"/>
+            <point key="canvasLocation" x="835" y="-435"/>
         </scene>
         <!--Keyboard Controller-->
         <scene sceneID="ZwW-gw-TBj">
@@ -123,111 +144,111 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KBF-F0-x0E">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="899"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="OIn-xr-6iQ">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="560"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="ZlS-Il-gO1">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="899"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="oLp-d1-rEh">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="110.33333333333333"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="uzD-YK-AEc">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="110.66666666666667"/>
                                                         <subviews>
-                                                            <button opaque="NO" tag="10003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qa1-On-wmC">
-                                                                <rect key="frame" x="0.0" y="0.0" width="92" height="110.33333333333333"/>
+                                                            <button opaque="NO" tag="10003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="czg-GX-c1S">
+                                                                <rect key="frame" x="0.0" y="0.0" width="92" height="110.66666666666667"/>
                                                                 <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                 <state key="normal" title="×">
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="onSymbolTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="Ruv-kA-nHJ"/>
+                                                                    <action selector="onSymbolTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="D6j-aO-DW8"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" tag="10004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zBE-vL-Lhr">
-                                                                <rect key="frame" x="94" y="0.0" width="92" height="110.33333333333333"/>
+                                                            <button opaque="NO" tag="10004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TOF-bn-vJd">
+                                                                <rect key="frame" x="94" y="0.0" width="92" height="110.66666666666667"/>
                                                                 <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                 <state key="normal" title="÷">
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="onSymbolTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="A5A-n8-VFd"/>
+                                                                    <action selector="onSymbolTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="nt4-5x-9UP"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" tag="10017" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qqe-yk-9qe">
-                                                                <rect key="frame" x="188" y="0.0" width="92" height="110.33333333333333"/>
+                                                            <button opaque="NO" tag="10017" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qgN-xl-sgf">
+                                                                <rect key="frame" x="188" y="0.0" width="92" height="110.66666666666667"/>
                                                                 <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                 <state key="normal" title="⇐">
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="onSymbolTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="KnF-fV-v36"/>
+                                                                    <action selector="onSymbolTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="3xG-DC-wWf"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" tag="10014" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNo-Kg-fUl">
-                                                                <rect key="frame" x="282" y="0.0" width="92" height="110.33333333333333"/>
+                                                            <button opaque="NO" tag="10014" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4H8-S6-adE">
+                                                                <rect key="frame" x="282" y="0.0" width="92" height="110.66666666666667"/>
                                                                 <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                 <state key="normal" title="AC">
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="onSymbolTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="xB8-DS-xLK"/>
+                                                                    <action selector="onSymbolTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="esQ-Wb-iJb"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="DS3-rT-A50">
-                                                        <rect key="frame" x="0.0" y="112.33333333333334" width="374" height="110.33333333333334"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="6N8-jq-5kI">
+                                                        <rect key="frame" x="0.0" y="112.66666666666666" width="374" height="110.66666666666666"/>
                                                         <subviews>
-                                                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="28x-1a-SWi">
-                                                                <rect key="frame" x="0.0" y="0.0" width="92" height="110.33333333333333"/>
+                                                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xci-O1-JhL">
+                                                                <rect key="frame" x="0.0" y="0.0" width="92" height="110.66666666666667"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                 <state key="normal" title="7">
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="onNumericTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="8S0-Xe-xRX"/>
+                                                                    <action selector="onNumericTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="mHi-n7-8sZ"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGh-hs-RvS">
-                                                                <rect key="frame" x="94" y="0.0" width="92" height="110.33333333333333"/>
+                                                            <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLJ-y0-jW1">
+                                                                <rect key="frame" x="94" y="0.0" width="92" height="110.66666666666667"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                 <state key="normal" title="8">
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="onNumericTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="5hE-fl-VN9"/>
+                                                                    <action selector="onNumericTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="Rsn-o0-TRd"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IP5-L0-JRQ">
-                                                                <rect key="frame" x="188" y="0.0" width="92" height="110.33333333333333"/>
+                                                            <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bev-gi-JQ4">
+                                                                <rect key="frame" x="188" y="0.0" width="92" height="110.66666666666667"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                 <state key="normal" title="9">
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="onNumericTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="bwR-VF-SBG"/>
+                                                                    <action selector="onNumericTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="LEx-no-BEK"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" tag="10001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kJ9-2b-DDT">
-                                                                <rect key="frame" x="282" y="0.0" width="92" height="110.33333333333333"/>
+                                                            <button opaque="NO" tag="10001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8a5-9F-y6d">
+                                                                <rect key="frame" x="282" y="0.0" width="92" height="110.66666666666667"/>
                                                                 <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                 <state key="normal" title="+">
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="onSymbolTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="Nq1-nt-khU"/>
+                                                                    <action selector="onSymbolTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="9se-xT-uXw"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="jBi-Mz-Jye">
-                                                        <rect key="frame" x="0.0" y="224.66666666666669" width="374" height="110.66666666666669"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Kxb-3Z-LRI">
+                                                        <rect key="frame" x="0.0" y="225.33333333333337" width="374" height="110.66666666666663"/>
                                                         <subviews>
-                                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JLj-ap-oE3">
+                                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TBF-Dg-0NQ">
                                                                 <rect key="frame" x="0.0" y="0.0" width="92" height="110.66666666666666"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -235,10 +256,10 @@
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="onNumericTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="Bvm-cQ-V9t"/>
+                                                                    <action selector="onNumericTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="5me-Zb-eZk"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KtX-9z-c8Q">
+                                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NxL-uu-iLQ">
                                                                 <rect key="frame" x="94" y="0.0" width="92" height="110.66666666666666"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -246,10 +267,10 @@
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="onNumericTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="UAY-1R-hct"/>
+                                                                    <action selector="onNumericTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="yBO-5t-UFl"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AvP-td-Z1A">
+                                                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DdH-zS-E5Y">
                                                                 <rect key="frame" x="188" y="0.0" width="92" height="110.66666666666666"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -257,80 +278,86 @@
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="onNumericTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="5E8-44-gGQ"/>
+                                                                    <action selector="onNumericTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="VDS-2i-GGV"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" tag="10002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rXK-OY-Xzm">
+                                                            <button opaque="NO" tag="10002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QdV-73-Mf7">
                                                                 <rect key="frame" x="282" y="0.0" width="92" height="110.66666666666666"/>
                                                                 <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                                <state key="normal" title="-">
+                                                                <state key="normal" title="−">
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="onSymbolTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="ap0-9z-P6L"/>
+                                                                    <action selector="onSymbolTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="Ted-NB-QZ0"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="MsL-QG-X6y">
-                                                        <rect key="frame" x="0.0" y="337.33333333333331" width="374" height="110.33333333333337"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="hhj-pl-kIe">
+                                                        <rect key="frame" x="0.0" y="338" width="374" height="110.66666666666669"/>
                                                         <subviews>
-                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Tc-pJ-GlF">
-                                                                <rect key="frame" x="0.0" y="0.0" width="92" height="110.33333333333337"/>
+                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f7Q-dT-Wu6">
+                                                                <rect key="frame" x="0.0" y="0.0" width="92" height="110.66666666666669"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                 <state key="normal" title="1">
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="onNumericTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="5y5-MM-Rwh"/>
+                                                                    <action selector="onNumericTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="wg9-Uz-zmO"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ihj-zo-LEV">
-                                                                <rect key="frame" x="94" y="0.0" width="92" height="110.33333333333337"/>
+                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gcK-MG-SXi">
+                                                                <rect key="frame" x="94" y="0.0" width="92" height="110.66666666666669"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                 <state key="normal" title="2">
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="onNumericTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="omk-gS-Mnd"/>
+                                                                    <action selector="onNumericTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="xmn-fu-kHl"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pWq-KQ-7cM">
-                                                                <rect key="frame" x="188" y="0.0" width="92" height="110.33333333333337"/>
+                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZp-W1-2ll">
+                                                                <rect key="frame" x="188" y="0.0" width="92" height="110.66666666666669"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                 <state key="normal" title="3">
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="onNumericTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="Bw8-KT-HK6"/>
+                                                                    <action selector="onNumericTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="UOE-uO-z1d"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ofz-FU-Vd9">
-                                                                <rect key="frame" x="282" y="0.0" width="92" height="110.33333333333337"/>
+                                                            <button opaque="NO" tag="10016" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdQ-Rf-Nq3">
+                                                                <rect key="frame" x="282" y="0.0" width="92" height="110.66666666666669"/>
                                                                 <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                 <state key="normal" title="±">
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="onSymbolTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="eau-DP-Vzc"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="rLu-EO-ydk">
-                                                        <rect key="frame" x="0.0" y="449.66666666666674" width="374" height="110.33333333333326"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="yvM-BU-SZj">
+                                                        <rect key="frame" x="0.0" y="450.66666666666674" width="374" height="110.33333333333326"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ts-LU-jNl">
+                                                            <button opaque="NO" tag="10015" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="saT-mE-cy5">
                                                                 <rect key="frame" x="0.0" y="0.0" width="92" height="110.33333333333331"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                 <state key="normal" title=".">
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="onSymbolTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="aoi-ST-HYQ"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lvS-bG-k2W">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LzJ-3Y-SkX">
                                                                 <rect key="frame" x="94" y="0.0" width="92" height="110.33333333333331"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -338,18 +365,21 @@
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="onNumericTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="zy4-x8-kBu"/>
+                                                                    <action selector="onNumericTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="VQ1-fh-Hmk"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ic3-DT-uOm">
+                                                            <button opaque="NO" tag="10006" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WAi-KG-XGp">
                                                                 <rect key="frame" x="188" y="0.0" width="92" height="110.33333333333331"/>
                                                                 <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                 <state key="normal" title="√">
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="onSymbolTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="7Va-rV-cOI"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" tag="10013" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IIZ-qz-91L">
+                                                            <button opaque="NO" tag="10013" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ph-1a-jhF">
                                                                 <rect key="frame" x="282" y="0.0" width="92" height="110.33333333333331"/>
                                                                 <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -357,134 +387,132 @@
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="onSymbolTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="4V0-Zi-eQh"/>
+                                                                    <action selector="onSymbolTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="hEK-YN-zaA"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="TMP-tA-df4">
-                                                <rect key="frame" x="0.0" y="562" width="374" height="337"/>
-                                                <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="kMU-Fs-IiG">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="111"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="D1X-nS-hiT">
+                                                        <rect key="frame" x="0.0" y="563" width="374" height="110.66666666666663"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ce2-ps-l10">
-                                                                <rect key="frame" x="0.0" y="0.0" width="92" height="111"/>
-                                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                                <state key="normal" title="e">
-                                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                </state>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0rN-Ry-WWF">
-                                                                <rect key="frame" x="94" y="0.0" width="92" height="111"/>
+                                                            <button opaque="NO" tag="10012" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lmP-1e-uAK">
+                                                                <rect key="frame" x="0.0" y="0.0" width="92" height="110.66666666666663"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                 <state key="normal" title="Pi">
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                             </button>
-                                                            <button opaque="NO" tag="10010" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QWe-QA-7PD">
-                                                                <rect key="frame" x="188" y="0.0" width="92" height="111"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9AP-q5-JvV">
+                                                                <rect key="frame" x="94" y="0.0" width="92" height="110.66666666666663"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                                <state key="normal" title="e">
+                                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </state>
+                                                            </button>
+                                                            <button opaque="NO" tag="10010" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y8w-kN-erV">
+                                                                <rect key="frame" x="188" y="0.0" width="92" height="110.66666666666663"/>
                                                                 <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                 <state key="normal" title="(">
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="onSymbolTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="2pt-FZ-uYZ"/>
+                                                                    <action selector="onSymbolTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="g32-7I-9Fq"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" tag="10011" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ttF-hJ-zmb">
-                                                                <rect key="frame" x="282" y="0.0" width="92" height="111"/>
+                                                            <button opaque="NO" tag="10011" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O9I-gn-9eN">
+                                                                <rect key="frame" x="282" y="0.0" width="92" height="110.66666666666663"/>
                                                                 <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                 <state key="normal" title=")">
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="onSymbolTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="CHt-4J-o2y"/>
+                                                                    <action selector="onSymbolTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="Jjd-vF-APH"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Tbk-VF-vRb">
-                                                        <rect key="frame" x="0.0" y="113" width="374" height="111"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="UaB-5v-gvr">
+                                                        <rect key="frame" x="0.0" y="675.66666666666663" width="374" height="110.66666666666674"/>
                                                         <subviews>
-                                                            <button opaque="NO" tag="10008" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eX8-wJ-38W">
-                                                                <rect key="frame" x="0.0" y="0.0" width="92" height="111"/>
+                                                            <button opaque="NO" tag="10007" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cie-xY-sFF">
+                                                                <rect key="frame" x="0.0" y="0.0" width="92" height="110.66666666666674"/>
                                                                 <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                                <state key="normal" title="cos">
-                                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                </state>
-                                                                <connections>
-                                                                    <action selector="onSymbolTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="YXT-UP-0tA"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button opaque="NO" tag="10007" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8VT-On-rlQ">
-                                                                <rect key="frame" x="94" y="0.0" width="92" height="111"/>
-                                                                <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                                                 <state key="normal" title="sin">
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="onSymbolTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="7VD-Iw-yjo"/>
+                                                                    <action selector="onSymbolTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="vFw-9A-uAr"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WOA-hp-Jvv">
-                                                                <rect key="frame" x="188" y="0.0" width="92" height="111"/>
+                                                            <button opaque="NO" tag="10008" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ps5-HX-45N">
+                                                                <rect key="frame" x="94" y="0.0" width="92" height="110.66666666666674"/>
+                                                                <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                                                <state key="normal" title="cos">
+                                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="onSymbolTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="VIw-La-HFk"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" tag="10019" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQe-c3-vkM">
+                                                                <rect key="frame" x="188" y="0.0" width="92" height="110.66666666666674"/>
+                                                                <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                                                <state key="normal" title="tan">
+                                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </state>
+                                                            </button>
+                                                            <button opaque="NO" tag="10005" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u9p-b8-M6D">
+                                                                <rect key="frame" x="282" y="0.0" width="92" height="110.66666666666674"/>
+                                                                <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                                                <state key="normal" title="^">
+                                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="onSymbolTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="O7Y-1G-Bwh"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="CIG-Pq-jXn">
+                                                        <rect key="frame" x="0.0" y="788.33333333333348" width="374" height="110.66666666666663"/>
+                                                        <subviews>
+                                                            <button opaque="NO" tag="10009" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D9p-HK-0bX">
+                                                                <rect key="frame" x="0.0" y="0.0" width="92" height="110.66666666666663"/>
                                                                 <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                 <state key="normal" title="ln">
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
-                                                            </button>
-                                                            <button opaque="NO" tag="10005" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uk4-34-oJK">
-                                                                <rect key="frame" x="282" y="0.0" width="92" height="111"/>
-                                                                <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                                <state key="normal" title="^">
-                                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                </state>
                                                                 <connections>
-                                                                    <action selector="onSymbolTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="9JG-eI-4nE"/>
+                                                                    <action selector="onSymbolTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="E4W-n1-DeF"/>
                                                                 </connections>
                                                             </button>
-                                                        </subviews>
-                                                    </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="EII-5H-5J7">
-                                                        <rect key="frame" x="0.0" y="226" width="374" height="111"/>
-                                                        <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kqe-GE-dm0">
-                                                                <rect key="frame" x="0.0" y="0.0" width="92" height="111"/>
-                                                                <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                                <state key="normal" title="tan">
-                                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                </state>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Wv-IU-PLh">
-                                                                <rect key="frame" x="94" y="0.0" width="92" height="111"/>
-                                                                <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                                <state key="normal" title="!">
-                                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                </state>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cqf-pJ-gFR">
-                                                                <rect key="frame" x="188" y="0.0" width="92" height="111"/>
+                                                            <button opaque="NO" tag="10021" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2QF-kZ-uos">
+                                                                <rect key="frame" x="94" y="0.0" width="92" height="110.66666666666663"/>
                                                                 <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                 <state key="normal" title="log">
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DcC-HC-WOW">
-                                                                <rect key="frame" x="282" y="0.0" width="92" height="111"/>
+                                                            <button opaque="NO" tag="10020" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M1c-Ef-dtv">
+                                                                <rect key="frame" x="188" y="0.0" width="92" height="110.66666666666663"/>
+                                                                <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                                <state key="normal" title="!">
+                                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </state>
+                                                            </button>
+                                                            <button opaque="NO" tag="10022" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1uG-Ec-BlV">
+                                                                <rect key="frame" x="282" y="0.0" width="92" height="110.66666666666663"/>
                                                                 <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                 <state key="normal" title="%">
@@ -494,20 +522,14 @@
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="337.5" id="eCU-26-G3d"/>
-                                                </constraints>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="OIn-xr-6iQ" secondAttribute="trailing" id="0nF-aM-mlj"/>
-                                            <constraint firstItem="TMP-tA-df4" firstAttribute="top" secondItem="OIn-xr-6iQ" secondAttribute="bottom" constant="2" id="7mE-aY-hfs"/>
-                                            <constraint firstAttribute="trailing" secondItem="TMP-tA-df4" secondAttribute="trailing" id="CxS-cf-MO7"/>
-                                            <constraint firstItem="OIn-xr-6iQ" firstAttribute="top" secondItem="KBF-F0-x0E" secondAttribute="top" id="HE7-Nu-oQE"/>
-                                            <constraint firstAttribute="bottom" secondItem="TMP-tA-df4" secondAttribute="bottom" id="TG0-XT-2zq"/>
-                                            <constraint firstItem="TMP-tA-df4" firstAttribute="leading" secondItem="KBF-F0-x0E" secondAttribute="leading" id="WA0-Jq-dm7"/>
-                                            <constraint firstItem="OIn-xr-6iQ" firstAttribute="leading" secondItem="KBF-F0-x0E" secondAttribute="leading" id="byp-rl-sfY"/>
+                                            <constraint firstItem="ZlS-Il-gO1" firstAttribute="leading" secondItem="KBF-F0-x0E" secondAttribute="leading" id="ABL-0M-XW6"/>
+                                            <constraint firstAttribute="bottom" secondItem="ZlS-Il-gO1" secondAttribute="bottom" id="Lcs-Rm-i6c"/>
+                                            <constraint firstItem="ZlS-Il-gO1" firstAttribute="top" secondItem="KBF-F0-x0E" secondAttribute="top" id="NbE-ot-cJV"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZlS-Il-gO1" secondAttribute="trailing" id="a3i-S1-OQ9"/>
                                             <constraint firstAttribute="height" constant="899" id="fEb-uI-jeX"/>
                                         </constraints>
                                     </view>
