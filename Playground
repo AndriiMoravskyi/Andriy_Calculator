@@ -36,7 +36,7 @@ class Stack {
 }
 
 func Change (input : String) -> String {
-    var Mod =  input.replacingOccurrences(of: "×", with: " * ")
+    var Mod =  input.replacingOccurrences(of: "*", with: " * ")
     var Mod1 = Mod
     Mod = Mod1.replacingOccurrences(of: "/", with: " / ")
     Mod1 = Mod
@@ -62,15 +62,13 @@ extension String {
         get {
             switch self {
             case "+":
-                return 6
-            case "-":
-                return 5
-            case "*":
                 return 4
+            case "-":
+                return 4
+            case "*":
+                return 3
             case "/":
                 return 3
-            case "^":
-                return 2
             case "^":
                 return 2
             case "√":
@@ -148,7 +146,7 @@ class infixparser {
             }
             
             if token.isOperator {
-                while operatorStack.peek.precedence < token.precedence {
+                while operatorStack.peek.precedence <= token.precedence {
                     if !operatorStack.empty {
                         var res = 0.0
                         switch operatorStack.peek {
@@ -219,8 +217,9 @@ class infixparser {
     }
     
 }
-let expr = "8/2+9/3"
+let expr = "8/9/2"
 let expr1 = Change(input: expr)
 var parser = infixparser()
 parser.solve(expression: expr1)
+
 
