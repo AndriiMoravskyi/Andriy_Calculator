@@ -124,7 +124,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YqL-Q8-nPN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="835" y="-435"/>
+            <point key="canvasLocation" x="825" y="-200"/>
         </scene>
         <!--Keyboard Controller-->
         <scene sceneID="ZwW-gw-TBj">
@@ -403,7 +403,7 @@
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9AP-q5-JvV">
+                                                            <button opaque="NO" tag="10018" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9AP-q5-JvV">
                                                                 <rect key="frame" x="94" y="0.0" width="92" height="110.66666666666663"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -467,6 +467,9 @@
                                                                 <state key="normal" title="tan">
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="onSymbolTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="mL3-07-oTK"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" tag="10005" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u9p-b8-M6D">
                                                                 <rect key="frame" x="282" y="0.0" width="92" height="110.66666666666674"/>
@@ -476,7 +479,7 @@
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="onSymbolTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="O7Y-1G-Bwh"/>
+                                                                    <action selector="onSymbolTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="ofg-Q1-dQD"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -518,6 +521,9 @@
                                                                 <state key="normal" title="%">
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="onSymbolTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="gEV-Jy-mj1"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>

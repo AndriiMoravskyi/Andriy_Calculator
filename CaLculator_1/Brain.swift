@@ -101,17 +101,19 @@ extension String {
         get {
             switch self {
             case "+":
-                return 6
-            case "-":
-                return 5
-            case "*":
                 return 4
+            case "-":
+                return 4
+            case "*":
+                return 3
             case "/":
                 return 3
             case "^":
                 return 2
             case "√":
                 return 2
+            case "tan":
+                return 1
             case "sin":
                 return 1
             case "cos":
@@ -128,7 +130,7 @@ extension String {
     
     var isOperator: Bool {
         get {
-            return ("+ - * / sin cos ^ √ ( )" as NSString).contains(self)
+            return ("+ - * / sin cos ^ √ ( ) ln log tan" as NSString).contains(self)
         }
     }
     
@@ -185,15 +187,12 @@ class infixparser {
             }
             
             if token.isOperator {
-                if token == "("
-                {
-                    opertionStack.push(value: "(")
-                }
+                
                 if token == ")"{
                     
                      while opertionStack.peek != "("
                     {
-                        if !opertionStack.empty //&& opertionStack.peek.precedence < token.precedence
+                        if !opertionStack.empty && opertionStack.peek.precedence >= token.precedence
                         {
                             var res = 0.0
                             switch opertionStack.peek {
@@ -204,7 +203,7 @@ class infixparser {
                                 { res = Double(numbersStack.selfvalue[numbersStack.selfvalue.count-2])! - Double(numbersStack.pop())!
                                     _ = numbersStack.pop()}
                                 else {
-                                    res = 0.0 - Double(numbersStack.pop())!
+                                    res = -Double(numbersStack.pop())!
                                 }
                             case "^":
                                 res = pow (Double(numbersStack.selfvalue[numbersStack.selfvalue.count-2])!, Double(numbersStack.pop())!)
@@ -216,10 +215,16 @@ class infixparser {
                                 _ = numbersStack.pop()
                             case "√":
                                 res = sqrt(Double(numbersStack.pop())!)
+                            case "^":
+                                res = pow (Double(numbersStack.selfvalue[numbersStack.selfvalue.count-2])!, Double(numbersStack.pop())!)
+                                _ = numbersStack.pop()
                             case "sin":
                                 res = sin (Double(numbersStack.pop())!)
                             case "cos":
                                 res = cos(Double(numbersStack.pop())!)
+                            case "tan":
+                                res = cos(Double(numbersStack.pop())!)
+
                             default:
                                 res = 0
                             }
@@ -232,9 +237,9 @@ class infixparser {
                    _ = opertionStack.pop()
                 }
                     
-                else if token != "(" && token != ")" {
-                    opertionStack.push(value: token)
-                    if !opertionStack.empty && opertionStack.peek.precedence < token.precedence {
+                else if token != "(" && token != ")" && opertionStack.peek != "(" && opertionStack.peek.precedence <= token.precedence {
+                    
+                    if !opertionStack.empty  {
                         var res = 0.0
                         switch opertionStack.peek {
                         case "+":
@@ -244,7 +249,7 @@ class infixparser {
                             { res = Double(numbersStack.selfvalue[numbersStack.selfvalue.count-2])! - Double(numbersStack.pop())!
                                 _ = numbersStack.pop()}
                             else {
-                                res = 0.0 - Double(numbersStack.pop())!
+                                res = -Double(numbersStack.pop())!
                             }
                         case "*":
                             res = Double(numbersStack.pop())! * Double(numbersStack.pop())!
@@ -254,6 +259,8 @@ class infixparser {
                         case "sin":
                             res = sin(Double(numbersStack.pop())!)
                         case "cos":
+                            res = cos(Double(numbersStack.pop())!)
+                        case "tan":
                             res = cos(Double(numbersStack.pop())!)
                         case "√":
                             res = sqrt(Double(numbersStack.pop())!)
@@ -267,6 +274,7 @@ class infixparser {
                         numbersStack.push(value: "\(res)")
                     }
                 }
+                if token != ")" {opertionStack.push(value: token)}
             }
         }
         while !opertionStack.empty {
@@ -289,6 +297,8 @@ class infixparser {
             case "sin":
                 res = sin(Double(numbersStack.pop())!)
             case "cos":
+                res = cos(Double(numbersStack.pop())!)
+            case "tan":
                 res = cos(Double(numbersStack.pop())!)
             case "√":
                 res = sqrt(Double(numbersStack.pop())!)

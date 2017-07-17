@@ -44,6 +44,7 @@ func enterUtility(_ symbol: Operation){
     
         switch symbol {
         case .pls :
+            dottap = false
             if input == nil || input == "" || input == "0"
             {input = "0"}
             else if  input.characters.last == "+" || input.characters.last == "-" || input.characters.last == "×" || input.characters.last == "÷" || input.characters.last == "^"  {
@@ -55,6 +56,7 @@ func enterUtility(_ symbol: Operation){
             }
             brain.enterEquation(equation: input)
         case .mns :
+            dottap = false
             if input == nil || input == "" || input == "0"
             {input = "-"}
         else if  input.characters.last == "+" || input.characters.last == "-" || input.characters.last == "×" || input.characters.last == "÷" || input.characters.last == "^" {
@@ -66,6 +68,7 @@ func enterUtility(_ symbol: Operation){
         }
             brain.enterEquation(equation: input)
         case .mul :
+            dottap = false
             if input == nil || input == "" || input == "0"
             {input = "0"}
             else if  input.characters.last == "+" || input.characters.last == "-" || input.characters.last == "×" || input.characters.last == "÷" || input.characters.last == "^"{
@@ -75,6 +78,7 @@ func enterUtility(_ symbol: Operation){
                     else{input = input + ("×")}
             brain.enterEquation(equation: input)
         case .div :
+            dottap = false
             if input == nil || input == "" || input == "0"
             {input = "0"}
             else if  input.characters.last == "+" || input.characters.last == "-" || input.characters.last == "×" || input.characters.last == "÷" || input.characters.last == "^"{
@@ -112,7 +116,10 @@ func enterUtility(_ symbol: Operation){
             {input = "cos("}
             else {input = input + ("cos(")}
             brain.enterEquation(equation: input)
-        case .log : input = input + ("ln(")
+        case .log :
+            if input == nil || input == "" || input == "0"
+            {input = "ln("}
+            else {input = input + ("ln(")}
             brain.enterEquation(equation: input)
         case .leftBracket :if input == nil || input == "" || input == "0"
         {input = "("}

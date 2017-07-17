@@ -27,6 +27,9 @@ import Foundation
  case dot = 10015
  case sign = 10016
  case clearS = 10017
+ case tan = 10019
+ case log10 = 10021
+ case factor = 10020
 
  }
  
