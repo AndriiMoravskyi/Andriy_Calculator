@@ -119,6 +119,7 @@
                     </view>
                     <connections>
                         <outlet property="DisplayLab" destination="pxU-90-QHB" id="fBY-ER-eIp"/>
+                        <outlet property="Scroll" destination="IuB-F7-dfy" id="M4U-j3-IYY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YqL-Q8-nPN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -171,7 +172,7 @@
                                                                     <action selector="onSymbolTapWithButton:" destination="FLL-Me-dI5" eventType="touchUpInside" id="nt4-5x-9UP"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" tag="10017" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qgN-xl-sgf">
+                                                            <button opaque="NO" tag="10024" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qgN-xl-sgf">
                                                                 <rect key="frame" x="188" y="0.0" width="92" height="110.66666666666667"/>
                                                                 <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>

@@ -34,7 +34,7 @@ class PanelController: UIViewController {
     func onNumericTap(num: Int) {
         input.enterNum(num)
     }
-   func onSymbolTap(symbol: Int) {
+    func onSymbolTap(symbol: Int) {
             input.enterUtility(Operation(rawValue: symbol)!)
         }
 }

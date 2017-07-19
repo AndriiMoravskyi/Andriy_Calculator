@@ -14,10 +14,14 @@ import UIKit
         
         @IBOutlet weak var DisplayLab: UILabel!
               
+        @IBOutlet weak var Scroll: UIScrollView!
              
        let output = OutputAdapter.shared
         
         func presentResult(value: String) {
+            if DisplayLab.text!.characters.count < value.characters.count{
+                Scroll.scrollRectToVisible(DisplayLab.bounds, animated: true)
+            }
             DisplayLab.text = value
         }
         override func viewDidLoad() {

@@ -120,7 +120,7 @@
 
     var isNumber: Bool {
         get {
-        return !isOperator && self != "(" && self != ")"
+        return !isOperator
         }
     }
 
@@ -164,12 +164,9 @@
 
         for (_, token) in tokens.enumerated() {
 
-        //"\(token) at \(index)"
-
             if token.isNumber {
                 numbersStack.push(value: token)
             }
-
             if token.isOperator {
                 
             if token == ")"{
@@ -207,9 +204,13 @@
         numbersStack.push(value: "\(res)")
         }
 
-
-        return Double(numbersStack.pop())!
-
+        
+        let calc = round(Double(numbersStack.pop())! * pow(10, 10)) / pow(10, 10)
+            if calc == -calc {
+                return 0
+            }
+            else {
+                return calc            }
         }
 
     }
@@ -224,6 +225,10 @@
         if Double(Operands.selfvalue[Operands.selfvalue.count-2]) != nil {
         res = Double(Operands.selfvalue[Operands.selfvalue.count-2])! - Double(Operands.pop())!
         _ = Operands.pop()}
+        else if Operands.selfvalue[Operands.selfvalue.count-2] == ""  {
+        res = -Double(Operands.pop())!
+            _ = Operands.pop()
+        }
         else {
         res = -Double(Operands.pop())!
         }
