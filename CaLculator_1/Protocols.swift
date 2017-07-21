@@ -33,7 +33,7 @@ import Foundation
          case log10 = 10021
          case exp = 10022
          case ctg = 10023
-        case clearS = 10024
+         case clearS = 10024
 }
      
 

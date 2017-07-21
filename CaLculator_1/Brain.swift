@@ -7,7 +7,9 @@
     //
 
     import Foundation
-
+    
+    let  Pi = round(Double.pi * pow(10, 10)) / pow(10, 10)
+    
     class Brain: Model {
         static let shared = Brain()
 
@@ -25,11 +27,10 @@
             let Mod = Change(input: equation)
 
             let parser = infixparser()
-            output.presentResult(result: String(parser.solve(expression: Mod)))
+            output.presentResult(result: String(parser.solve(expression: Mod).clean))
 
         }
     }
-
 
     class Stack {
 
@@ -67,91 +68,6 @@
         }
 
     }
-
-
-    extension String {
-
-        var precedence: Int {
-        get {
-            switch self {
-            case "+":
-                return 4
-            case "-":
-                return 4
-            case "*":
-                return 3
-            case "/":
-                return 3
-            case "^":
-                return 2
-            case "еxp":
-               return 2
-            case "!":
-                return 2
-            case "√":
-                return 2
-            case "ln":
-                return 1
-            case "log":
-                return 1
-            case "tan":
-                return 1
-            case "ctg":
-                return 1
-            case "sin":
-                return 1
-            case "cos":
-                return 1
-            case "(":
-                return 0
-            case ")":
-                return 0
-            default:
-                return 100
-            }
-        }
-    }
-
-    var isOperator: Bool {
-        get {
-        return ("+ - * / sin cos ^ √ ( ) ln log tan ctg еxp !" as NSString).contains(self)
-        }
-    }
-
-    var isNumber: Bool {
-        get {
-        return !isOperator
-        }
-    }
-
-    subscript (i: Int) -> Character {
-        return self[index(startIndex, offsetBy: i)]
-    }
-
-    subscript (i: Int) -> String {
-        return String(self[i] as Character)
-    }
-
-    subscript (r: Range<Int>) -> String {
-        let start = index(startIndex, offsetBy: r.lowerBound)
-        let end = index(startIndex, offsetBy: r.upperBound - r.lowerBound)
-        return self[Range(start ..< end)]
-    }
-    }
-
-
-
-    extension Array {
-        func get(index: Int) -> Element {
-        if 0 <= index && index < count {
-            return self[index]
-        }
-        else {
-            return 0 as! Element
-        }
-        }
-    }
-
 
     class infixparser {
 
@@ -252,11 +168,34 @@
         case "cos":
         res = cos(Double(Operands.pop())!)
         case "tan":
-        res = tan(Double(Operands.pop())!)
+        let temp = Double(Operands.pop())!
+        if temp.truncatingRemainder(dividingBy: Pi ) != 0 {
+        res = Double.infinity
+        }
+        else {
+            res = tan(temp)
+        }
         case "ctg":
-        res = 1.0/tan(Double(Operands.pop())!)
+            let temp = Double(Operands.pop())!
+            if temp.truncatingRemainder(dividingBy: Pi) == 0 {
+                res = Double.infinity
+            }
+            else {
+                res = 1/tan(temp)
+            }
         case "!" :
-        res = Double(factorial(n: Int(Operands.pop())!))
+        let temp = Double(Operands.pop())!
+        let temp2 = Int64(temp)
+        if temp2 >= 21 {
+        res = Double.infinity
+        }
+        else{
+        if Double(temp2) == temp {
+            res = Double(factorial(n: Int64(temp)))}
+        else {
+            res = exp(log(Double(factorial(n: Int64(temp2)))) + (temp - Double(temp2)) * log(temp+1))
+            }
+        }
         case "ln" :
         res = log(Double(Operands.pop())!)
         case "log" :
@@ -267,15 +206,13 @@
     return res
     }
 
-    func factorial(n: Int) -> Int{
-        
+    func factorial(n: Int64) -> Int64 {
         if n == 0{
-            
             return 1
         }
-        
         return n * factorial(n: n-1)
     }
+        
     
     func Change (input : String) -> String {
         var Mod =  input.replacingOccurrences(of: "×", with: " * ")
@@ -296,7 +233,7 @@
         Mod1 = Mod
         Mod = Mod1.replacingOccurrences(of: "log", with: "log ")
         Mod1 = Mod
-        Mod = Mod1.replacingOccurrences(of: "π", with: "\(Double.pi)")
+        Mod = Mod1.replacingOccurrences(of: "π", with: "\(Pi)")
         Mod1 = Mod
         Mod = Mod1.replacingOccurrences(of: "e", with: "\(M_E)")
         Mod1 = Mod
