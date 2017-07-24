@@ -10,7 +10,7 @@ import UIKit
 
 
 class KeyboardController: UIViewController {
-
+        
     var onNumTap: ((_ num: Int)->())?
     var SymbolTap :((_ symbol: Int)->())?
     
@@ -20,5 +20,10 @@ class KeyboardController: UIViewController {
     
     @IBAction func onSymbolTap(button: UIButton) {
         SymbolTap?(button.tag)
+        if button.tag == 10013 {
+            // Post notification to present Cat
+            let notificationName = Notification.Name("PresentCatNotification")
+            NotificationCenter.default.post(name: notificationName, object: nil)
+        }
     }
 }

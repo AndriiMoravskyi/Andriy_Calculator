@@ -160,7 +160,7 @@ func enterUtility(_ symbol: Operation){
                 ParenthesesCount = ParenthesesCount + 1
             }
             else if input.characters.last! >= "0" && input.characters.last! <= "9" || input.characters.last == "π" || input.characters.last == "e"
-                || input.characters.last == "!"
+                || input.characters.last == "!" || input.characters.last == ")"
             {
               input = input + ("×√")
             }
@@ -174,7 +174,8 @@ func enterUtility(_ symbol: Operation){
             Calculation = true
             if input == nil || input == "" || input == "0"
             {input = "sin("}
-            else if input.characters.last! >= "0" && input.characters.last! <= "9" || input.characters.last == "π" || input.characters.last == "e"{
+            else if input.characters.last! >= "0" && input.characters.last! <= "9" || input.characters.last == "π" || input.characters.last == "e"
+            || input.characters.last == ")" {
                 input = input + ("×sin(")}
             else if input.characters.last != "." {
                 input = input + ("sin(")
@@ -187,7 +188,8 @@ func enterUtility(_ symbol: Operation){
             Calculation = true
             if input == nil || input == "" || input == "0"
             {input = "cos("}
-            else if input.characters.last! >= "0" && input.characters.last! <= "9" || input.characters.last == "π" || input.characters.last == "e"{
+            else if input.characters.last! >= "0" && input.characters.last! <= "9" || input.characters.last == "π" || input.characters.last == "e"
+            || input.characters.last == ")"  {
             input = input + ("×cos(")
             }
             else if input.characters.last != "." {
@@ -201,7 +203,8 @@ func enterUtility(_ symbol: Operation){
             Calculation = true
             if input == nil || input == "" || input == "0"
             {input = "tan("}
-            else if input.characters.last! >= "0" && input.characters.last! <= "9" || input.characters.last == "π" || input.characters.last == "e"{
+            else if input.characters.last! >= "0" && input.characters.last! <= "9" || input.characters.last == "π" || input.characters.last == "e"
+            || input.characters.last == ")" {
             input = input + ("×tan(")}
             else if input.characters.last != "." {
                 input = input + ("tan(")
@@ -214,7 +217,8 @@ func enterUtility(_ symbol: Operation){
             Calculation = true
             if input == nil || input == "" || input == "0"
             {input = "ctg("}
-            else if input.characters.last! >= "0" && input.characters.last! <= "9" || input.characters.last == "π" || input.characters.last! == "e"{
+            else if input.characters.last! >= "0" && input.characters.last! <= "9" || input.characters.last == "π" || input.characters.last! == "e"
+            || input.characters.last == ")" {
             input = input + ("×ctg(")}
             else if input.characters.last != "." {
                 input = input + ("ctg(")
@@ -227,7 +231,8 @@ func enterUtility(_ symbol: Operation){
             Calculation = true
             if input == nil || input == "" || input == "0"
             {input = "еxp("}
-            else if input.characters.last! >= "0" && input.characters.last! <= "9" || input.characters.last == "π" || input.characters.last! == "e"{
+            else if input.characters.last! >= "0" && input.characters.last! <= "9" || input.characters.last == "π" || input.characters.last! == "e"
+            || input.characters.last == ")" {
             input = input + ("×exp(")}
             else if input.characters.last != "." {
                 input = input + ("еxp(")
@@ -240,7 +245,8 @@ func enterUtility(_ symbol: Operation){
             Calculation = true
             if input == nil || input == "" || input == "0"
             {input = "ln("}
-            else if input.characters.last! >= "0" && input.characters.last! <= "9" || input.characters.last == "π" || input.characters.last! == "e"{
+            else if input.characters.last! >= "0" && input.characters.last! <= "9" || input.characters.last == "π" || input.characters.last! == "e"
+            || input.characters.last == ")" {
             input = input + ("×ln(")
             }
             else if input.characters.last != "."{
@@ -255,7 +261,7 @@ func enterUtility(_ symbol: Operation){
             if input == nil || input == "" || input == "0"
             {input = "log("}
             else if input.characters.last! >= "0" && input.characters.last! <= "9" || input.characters.last == "π" || input.characters.last! == "e"
-            {
+            || input.characters.last == ")" {
             input = input + ("×log(")}
             else if input.characters.last != "." {
                 input = input + ("log(")

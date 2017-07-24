@@ -20,7 +20,8 @@ class PanelController: UIViewController {
         if segue.identifier == "DisplayControllerSegue", let controller = segue.destination as? DisplayController {
             
             display = controller
-        } else if segue.identifier == "KeyboardControllerSegue", let controller = segue.destination as? KeyboardController {
+        }
+        else if segue.identifier == "KeyboardControllerSegue", let controller = segue.destination as? KeyboardController {
             
             keyboard = controller
             keyboard.onNumTap = { [weak self] num in

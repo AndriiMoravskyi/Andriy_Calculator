@@ -169,6 +169,10 @@
             _ = Operands.pop()
         case "sin":
             res = sin(Double(Operands.pop())!)
+            res = round(res * pow(10, 10)) / pow(10, 10)
+            if res == -res {
+            res = 0
+            }
         case "cos":
             res = cos(Double(Operands.pop())!)
         case "tan":
@@ -185,6 +189,7 @@
             else {
                 res = tan(temp)
             }
+           res = round(res * pow(10, 10)) / pow(10, 10)
         case "ctg":
             let temp = Double(Operands.pop())!
             if temp.truncatingRemainder(dividingBy: Pi) == 0 {
