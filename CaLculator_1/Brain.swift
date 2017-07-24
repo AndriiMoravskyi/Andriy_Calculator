@@ -183,8 +183,8 @@
                 }
             }
             else {
-                res = tan(temp)}
-       
+                res = tan(temp)
+            }
         case "ctg":
             let temp = Double(Operands.pop())!
             if temp.truncatingRemainder(dividingBy: Pi) == 0 {

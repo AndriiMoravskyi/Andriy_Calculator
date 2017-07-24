@@ -10,14 +10,14 @@ import Foundation
 
  class InputAdapter: InputProtocol
  {
- static let shared = InputAdapter()
- let brain = Brain.shared
-let output = OutputAdapter.shared
- var input:String!
- var dottap = false
- var ParenthesesCount = 0
-var Calculation = false
- 
+    static let shared = InputAdapter()
+    let brain = Brain.shared
+    let output = OutputAdapter.shared
+    var input:String!
+    var dottap = false
+    var ParenthesesCount = 0
+    var Calculation = false
+
 func enterNum(_ number: Int){
         if input == nil || input == "0" {
             input = String(number)
@@ -43,8 +43,8 @@ func enterUtility(_ symbol: Operation){
             if input == nil || input == "" || input == "0"{
                 input = ""
             }
-            else if  input.characters.last == "+" || input.characters.last == "-" || input.characters.last == "×" || input.characters.last == "÷" ||
-                input.characters.last == "^"  {
+            else if  input.characters.last == "+" || input.characters.last == "-" || input.characters.last == "×" || input.characters.last == "÷"
+                || input.characters.last == "^"  {
                 input.characters.removeLast()
                 if input == nil || input == "" {
                     input = ""
@@ -84,8 +84,8 @@ func enterUtility(_ symbol: Operation){
             if input == nil || input == "" || input == "0"{
                 input = ""
             }
-            else if  input.characters.last == "+" || input.characters.last == "-" || input.characters.last == "×" || input.characters.last == "÷" ||
-                input.characters.last == "^"  {
+            else if  input.characters.last == "+" || input.characters.last == "-" || input.characters.last == "×" || input.characters.last == "÷"
+                || input.characters.last == "^"  {
                 input.characters.removeLast()
                 if input == nil || input == "" {
                     input = ""
@@ -108,8 +108,8 @@ func enterUtility(_ symbol: Operation){
             if input == nil || input == "" || input == "0"{
                 input = ""
             }
-            else if  input.characters.last == "+" || input.characters.last == "-" || input.characters.last == "×" || input.characters.last == "÷" ||
-                input.characters.last == "^"  {
+            else if  input.characters.last == "+" || input.characters.last == "-" || input.characters.last == "×" || input.characters.last == "÷"
+                || input.characters.last == "^"  {
                 input.characters.removeLast()
                 if input == nil || input == "" {
                     input = ""
@@ -132,8 +132,8 @@ func enterUtility(_ symbol: Operation){
             if input == nil || input == "" || input == "0"{
                 input = ""
             }
-            else if  input.characters.last == "+" || input.characters.last == "-" || input.characters.last == "×" || input.characters.last == "÷" ||
-                input.characters.last == "^"  {
+            else if  input.characters.last == "+" || input.characters.last == "-" || input.characters.last == "×" || input.characters.last == "÷"
+                || input.characters.last == "^"  {
                 input.characters.removeLast()
                 if input == nil || input == "" {
                     input = ""
@@ -277,8 +277,8 @@ func enterUtility(_ symbol: Operation){
         if input == nil || input == "" || input == "0"{
                 input = "0"
         }
-        else if input.characters.last == "+" || input.characters.last == "-" || input.characters.last == "×" || input.characters.last == "÷" ||
-        input.characters.last == "^"{
+        else if input.characters.last == "+" || input.characters.last == "-" || input.characters.last == "×" || input.characters.last == "÷"
+            || input.characters.last == "^"{
            break
                      }
         else if input.characters.last != "("{
@@ -321,18 +321,18 @@ func enterUtility(_ symbol: Operation){
            brain.enterEquation(equation: input)
         
         case .equal :
-        if input == nil || input == "" || input == "0" || Calculation
-        {
-            break
-        }
-        else if ParenthesesCount == 0 && !Calculation {
-        input = ""
-        brain.Caculation(calculation: {result in input = result})
-        }
-        else if ParenthesesCount != 0 {
-            output.presentResult(result: "Parentheses error")
-            ParenthesesCount = 0
-            input = ""}
+            if input == nil || input == "" || input == "0" || Calculation
+            {
+                break
+            }
+            else if ParenthesesCount == 0 && !Calculation {
+            input = ""
+            brain.Caculation(calculation: {result in input = result})
+            }
+            else if ParenthesesCount != 0 {
+                output.presentResult(result: "Parentheses error")
+                ParenthesesCount = 0
+                input = ""}
             dottap = false
         
         case .factor :
