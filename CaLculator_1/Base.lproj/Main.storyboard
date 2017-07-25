@@ -564,7 +564,7 @@
                                         </variation>
                                         <variation key="heightClass=compact-widthClass=compact">
                                             <mask key="constraints">
-                                                <include reference="fEb-uI-jeX"/>
+                                                <exclude reference="fEb-uI-jeX"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -582,6 +582,7 @@
                             <constraint firstItem="KBF-F0-x0E" firstAttribute="height" secondItem="huf-jD-mSK" secondAttribute="height" id="2Vp-mN-i8O"/>
                             <constraint firstItem="KBF-F0-x0E" firstAttribute="width" secondItem="huf-jD-mSK" secondAttribute="width" id="74a-ri-RUG"/>
                             <constraint firstItem="4uN-7R-EmL" firstAttribute="leading" secondItem="huf-jD-mSK" secondAttribute="leading" id="7dB-dM-6gj"/>
+                            <constraint firstItem="ZlS-Il-gO1" firstAttribute="height" secondItem="huf-jD-mSK" secondAttribute="height" id="IdS-L9-y8f"/>
                             <constraint firstAttribute="trailing" secondItem="4uN-7R-EmL" secondAttribute="trailing" id="L5i-9h-jQg"/>
                             <constraint firstItem="2f5-fx-k0N" firstAttribute="top" secondItem="4uN-7R-EmL" secondAttribute="bottom" id="Vlm-6C-8tq"/>
                             <constraint firstItem="4uN-7R-EmL" firstAttribute="top" secondItem="TlK-ou-e2g" secondAttribute="bottom" id="ygt-kA-4xC"/>
@@ -589,11 +590,17 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="2Vp-mN-i8O"/>
+                                <exclude reference="IdS-L9-y8f"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=regular">
                             <mask key="constraints">
                                 <include reference="2Vp-mN-i8O"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="IdS-L9-y8f"/>
                             </mask>
                         </variation>
                     </view>
@@ -602,7 +609,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b9d-OS-a9Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="599" y="249"/>
+            <point key="canvasLocation" x="574" y="232"/>
         </scene>
     </scenes>
     <resources>
