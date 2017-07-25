@@ -12,23 +12,17 @@
     
     class Brain: Model {
         static let shared = Brain()
-        
-        let output = OutputAdapter.shared
-        
+        let output = OutputAdapter.shared 
         var equation: String!
-        
         func enterEquation(equation: String) {
             self.equation = equation
             output.presentResult(result: equation)
         }
-        
+        // function wich get result from parser and give it to output adapter
         func Caculation(calculation: (String)->()){
-            
             let Mod = Change(input: equation)
-            
             let parser = infixparser()
             output.presentResult(result: String(parser.solve(expression: Mod).clean))
-            
         }
     }
     
@@ -50,11 +44,9 @@
                 return selfvalue.count == 0
             }
         }
-        
         func push(value: String) {
             selfvalue.append(value)
         }
-        
         func pop() -> String {
             var temp = String()
             if selfvalue.count != 0 {
@@ -68,40 +60,31 @@
         }
         
     }
-    
+    // class wich parse our expression and return result of calculaions
     class infixparser {
         
         func solve( expression: String) -> Double {
-            
             let expression = expression
             let opertionStack = Stack()
             let numbersStack = Stack()
             let tokens = expression.components(separatedBy: " ")
             
             for (_, token) in tokens.enumerated() {
-                
                 if token.isNumber {
                     numbersStack.push(value: token)
                 }
                 if token.isOperator {
-                    
                     if token == ")"{
-                        
-                        while opertionStack.peek != "("
-                        {
-                            
-                            if !opertionStack.empty && opertionStack.peek.precedence >= token.precedence
-                            {
+                        while opertionStack.peek != "(" {
+                            if !opertionStack.empty && opertionStack.peek.precedence >= token.precedence {
                                 var res = 0.0
                                 res = Simplecalculation(Operationsymbol: opertionStack, Operands: numbersStack)
-                                
                                 numbersStack.push(value: "\(res)")
                             }
                             _ = opertionStack.pop()
                         }
                         _ = opertionStack.pop()
                     }
-                        
                     else if token != "(" && token != ")" && opertionStack.peek != "(" {
                         while !opertionStack.empty && opertionStack.peek != "(" && opertionStack.peek.precedence <= token.precedence  {
                             var res = 0.0
@@ -123,8 +106,6 @@
                 _ = opertionStack.pop()
                 numbersStack.push(value: "\(res)")
             }
-            
-            
             let calc = round(Double(numbersStack.pop())! * pow(10, 10)) / pow(10, 10)
             if calc == -calc {
                 return 0
@@ -134,7 +115,7 @@
         }
         
     }
-    
+    // function wich do calculations
     func Simplecalculation (Operationsymbol : Stack, Operands : Stack)-> Double
     {
         var res = 0.0
@@ -155,9 +136,9 @@
         case "^":
             res = pow (Double(Operands.selfvalue[Operands.selfvalue.count-2])!, Double(Operands.pop())!)
             _ = Operands.pop()
-        case "*":
+        case "×":
             res = Double(Operands.pop())! * Double(Operands.pop())!
-        case "/":
+        case "÷":
             res = Double(Operands.selfvalue[Operands.selfvalue.count-2])! / Double(Operands.pop())!
             _ = Operands.pop()
         case "√":
@@ -180,7 +161,7 @@
             if temp != 0 && temp.truncatingRemainder(dividingBy: Pi/2) == 0 {
                 let k = temp/(Pi/2)
                 if k.truncatingRemainder(dividingBy: 2) != 0 {
-                  res = Double.infinity
+                  res = Double.nan
                 }
                 else {
                  res = tan(temp)
@@ -193,7 +174,7 @@
         case "ctg":
             let temp = Double(Operands.pop())!
             if temp.truncatingRemainder(dividingBy: Pi) == 0 {
-                res = Double.infinity
+                res = Double.nan
             }
             else {
                 res = round(1/tan(temp) * pow(10, 10)) / pow(10, 10)
@@ -208,7 +189,7 @@
                 if Double(temp2) == temp {
                     res = Double(factorial(n: Int64(temp)))}
                 else {
-                    res = exp(log(Double(factorial(n: Int64(temp2)))) + (temp - Double(temp2)) * log(temp+1))
+                    res = Double(factorial(n: Int64(temp2))) * pow(Double(temp2+1), (temp - Double(temp2)))
                 }
             }
         case "ln" :
@@ -220,7 +201,7 @@
         }
         return res
     }
-    
+    // function to calculate factorial
     func factorial(n: Int64) -> Int64 {
         if n == 0{
             return 1
@@ -228,11 +209,11 @@
         return n * factorial(n: n-1)
     }
     
-    
+    // function that splits input expressinon with spaces
     func Change (input : String) -> String {
-        var Mod =  input.replacingOccurrences(of: "×", with: " * ")
+        var Mod =  input.replacingOccurrences(of: "×", with: " × ")
         var Mod1 = Mod
-        Mod = Mod1.replacingOccurrences(of: "÷", with: " / ")
+        Mod = Mod1.replacingOccurrences(of: "÷", with: " ÷ ")
         Mod1 = Mod
         Mod = Mod1.replacingOccurrences(of: "^", with: " ^ ")
         Mod1 = Mod

@@ -17,7 +17,6 @@ class KeyboardController: UIViewController {
     @IBAction func onNumericTap(button: UIButton) {
         onNumTap?(button.tag)
     }
-    
     @IBAction func onSymbolTap(button: UIButton) {
         SymbolTap?(button.tag)
         if button.tag == 10013 {

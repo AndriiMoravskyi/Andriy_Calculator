@@ -10,12 +10,9 @@
 import UIKit
 
     class DisplayController: UIViewController {
-        
-        @IBOutlet weak var DisplayLab: UILabel!
-              
-        @IBOutlet weak var Scroll: UIScrollView!
-             
-        @IBOutlet weak var Cat: UIImageView!
+    @IBOutlet weak var DisplayLab: UILabel!
+    @IBOutlet weak var Scroll: UIScrollView!
+    @IBOutlet weak var Cat: UIImageView!
        let output = OutputAdapter.shared
         
         func presentResult(value: String) {
@@ -33,16 +30,14 @@ import UIKit
             let presentCatNotificarionName = Notification.Name("PresentCatNotification")
             NotificationCenter.default.addObserver(self, selector: #selector(presentCat), name: presentCatNotificarionName, object: nil)
         }
-        
+        //function wich present image
         func presentCat() {
-            print("Recieved notification to present Cat")
-            Cat.frame = CGRect(x: 0, y: 0, width: 200, height: 70)
             view.bringSubview(toFront: Cat)
             
-            UIView.animate(withDuration: 2.0, animations: {
+            UIView.animate(withDuration: 0.0, animations: {
                 self.Cat.alpha = 1.0
             }) { (true) in
-                UIView.animate(withDuration: 2.0, animations: { 
+                UIView.animate(withDuration: 3.0, animations: {
                     self.Cat.alpha = 0.0
                 })
             }

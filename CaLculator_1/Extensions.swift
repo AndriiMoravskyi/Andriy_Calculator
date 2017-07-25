@@ -9,7 +9,7 @@
 import Foundation
 
 extension String {
-    
+    //Operation priority
     var precedence: Int {
         get {
             switch self {
@@ -17,9 +17,9 @@ extension String {
                 return 4
             case "-":
                 return 4
-            case "*":
+            case "×":
                 return 3
-            case "/":
+            case "÷":
                 return 3
             case "^":
                 return 2
@@ -50,13 +50,13 @@ extension String {
             }
         }
     }
-    
+    // extension that inform that it is operation
     var isOperator: Bool {
         get {
-            return ("+ - * / sin cos ^ √ ( ) ln log tan ctg еxp !" as NSString).contains(self)
+            return ("+ - × ÷ sin cos ^ √ ( ) ln log tan ctg еxp !" as NSString).contains(self)
         }
     }
-    
+    // extension that inform ta=hat it is number
     var isNumber: Bool {
         get {
             return !isOperator
@@ -78,7 +78,7 @@ extension String {
     }
 }
 
-
+// extension for double that remove zero
 extension Double {
     var clean: String {
         return self.truncatingRemainder(dividingBy: 1) == 0 ?
@@ -86,7 +86,7 @@ extension Double {
     }
 }
 
-
+// extension that returns element at index
 extension Array {
     func get(index: Int) -> Element {
         if 0 <= index && index < count {

@@ -9,7 +9,6 @@
 import Foundation
 
     enum Operation: Int{
-        
          case pls = 10001
          case mns = 10002
          case mul = 10003
@@ -36,7 +35,6 @@ import Foundation
          case clearS = 10024
 }
      
-
      protocol InputProtocol {
          func enterNum(_ number: Int)
          func enterUtility(_ symbol: Operation)

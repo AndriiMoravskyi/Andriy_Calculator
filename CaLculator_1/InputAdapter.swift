@@ -17,7 +17,7 @@ import Foundation
     var dottap = false
     var ParenthesesCount = 0
     var Calculation = false
-
+//function wich validate enter of number
 func enterNum(_ number: Int){
         if input == nil || input == "0" {
             input = String(number)
@@ -32,7 +32,7 @@ func enterNum(_ number: Int){
     
     }
  
-
+// function wich validate enter of operaions
 func enterUtility(_ symbol: Operation){
     
         switch symbol {
@@ -153,8 +153,9 @@ func enterUtility(_ symbol: Operation){
         case .sqrt :
             dottap = false
             Calculation = true
-            if input == nil || input == "" || input == "0"
-            {input = "√"}
+            if input == nil || input == "" || input == "0" {
+                input = "√"
+            }
             else  if input.characters.last == "√" {
                 input = input + ("(√")
                 ParenthesesCount = ParenthesesCount + 1
@@ -162,7 +163,7 @@ func enterUtility(_ symbol: Operation){
             else if input.characters.last! >= "0" && input.characters.last! <= "9" || input.characters.last == "π" || input.characters.last == "e"
                 || input.characters.last == "!" || input.characters.last == ")"
             {
-              input = input + ("×√")
+                input = input + ("×√")
             }
             else if input.characters.last != "." {
             input = input + ("√")
@@ -172,8 +173,9 @@ func enterUtility(_ symbol: Operation){
         case .sin :
             dottap = false
             Calculation = true
-            if input == nil || input == "" || input == "0"
-            {input = "sin("}
+            if input == nil || input == "" || input == "0"{
+                input = "sin("
+            }
             else if input.characters.last! >= "0" && input.characters.last! <= "9" || input.characters.last == "π" || input.characters.last == "e"
             || input.characters.last == ")" {
                 input = input + ("×sin(")}

@@ -48,7 +48,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="3q9-Ec-s06" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="D4m-CD-i6l"/>
                             <constraint firstItem="3q9-Ec-s06" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="WC9-Kg-KWA"/>
@@ -77,6 +77,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.050000000000000003" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2bb6dc0db7452e1" translatesAutoresizingMaskIntoConstraints="NO" id="8k4-OA-Tgp">
+                                <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
+                            </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IuB-F7-dfy">
                                 <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
                                 <subviews>
@@ -90,10 +93,6 @@
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" alpha="0.050000000000000003" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2bb6dc0db7452e1" translatesAutoresizingMaskIntoConstraints="NO" id="8k4-OA-Tgp">
-                                                <rect key="frame" x="0.0" y="0.0" width="816" height="459"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -116,8 +115,12 @@
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="IuB-F7-dfy" secondAttribute="trailing" id="02S-rY-O04"/>
+                            <constraint firstItem="8k4-OA-Tgp" firstAttribute="leading" secondItem="yFU-HF-Os5" secondAttribute="leading" id="0Ua-5Q-F44"/>
+                            <constraint firstAttribute="trailing" secondItem="8k4-OA-Tgp" secondAttribute="trailing" id="Jlg-pZ-AUK"/>
                             <constraint firstItem="IuB-F7-dfy" firstAttribute="leading" secondItem="yFU-HF-Os5" secondAttribute="leading" id="M3f-fP-X6M"/>
                             <constraint firstItem="Nkh-O0-Zb8" firstAttribute="top" secondItem="IuB-F7-dfy" secondAttribute="bottom" id="PW9-sK-Jgc"/>
+                            <constraint firstItem="Nkh-O0-Zb8" firstAttribute="top" secondItem="8k4-OA-Tgp" secondAttribute="bottom" id="Pkm-o1-25L"/>
+                            <constraint firstItem="8k4-OA-Tgp" firstAttribute="top" secondItem="8yn-QD-nKI" secondAttribute="bottom" id="RP8-or-LKr"/>
                             <constraint firstItem="IuB-F7-dfy" firstAttribute="top" secondItem="8yn-QD-nKI" secondAttribute="bottom" id="fWv-4Q-LXW"/>
                         </constraints>
                     </view>
@@ -129,7 +132,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YqL-Q8-nPN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="825" y="-200"/>
+            <point key="canvasLocation" x="824.63768115942037" y="-200.54347826086959"/>
         </scene>
         <!--Keyboard Controller-->
         <scene sceneID="ZwW-gw-TBj">

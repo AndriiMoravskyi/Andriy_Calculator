@@ -30,13 +30,13 @@ class PanelController: UIViewController {
             keyboard.SymbolTap = { [weak self] symbol in
                 self?.onSymbolTap(symbol: symbol)
         }
-    }
+      }
     }
     func onNumericTap(num: Int) {
         input.enterNum(num)
     }
     func onSymbolTap(symbol: Int) {
-            input.enterUtility(Operation(rawValue: symbol)!)
+        input.enterUtility(Operation(rawValue: symbol)!)
         }
 }
 
