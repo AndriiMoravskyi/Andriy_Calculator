@@ -7,19 +7,19 @@
 //  Copyright © 2017 Andriy_Moravskyi. All rights reserved.
 //
 
-import UIKit
+    import UIKit
 
     class DisplayController: UIViewController {
-    @IBOutlet weak var DisplayLab: UILabel!
-    @IBOutlet weak var Scroll: UIScrollView!
-    @IBOutlet weak var Cat: UIImageView!
-       let output = OutputAdapter.shared
+        @IBOutlet weak var cat: UIImageView!
+        @IBOutlet weak var scroll: UIScrollView!
+        @IBOutlet weak var displayLab: UILabel!
+        let output = OutputAdapter.shared
         
         func presentResult(value: String) {
-            if DisplayLab.text!.characters.count < value.characters.count{
-                Scroll.scrollRectToVisible(DisplayLab.bounds, animated: true)
+            if displayLab.text!.characters.count < value.characters.count{
+                scroll.scrollRectToVisible(displayLab.bounds, animated: true)
             }
-            DisplayLab.text = value
+            displayLab.text = value
         }
         override func viewDidLoad() {
             super.viewDidLoad()
@@ -32,14 +32,14 @@ import UIKit
         }
         //function wich present image
         func presentCat() {
-            view.bringSubview(toFront: Cat)
+            view.bringSubview(toFront: cat)
             
             UIView.animate(withDuration: 0.0, animations: {
-                self.Cat.alpha = 1.0
+                self.cat.alpha = 1.0
             }) { (true) in
                 UIView.animate(withDuration: 3.0, animations: {
-                    self.Cat.alpha = 0.0
+                    self.cat.alpha = 0.0
                 })
             }
         }
-}
+    }

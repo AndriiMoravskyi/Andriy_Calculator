@@ -92,7 +92,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="pxU-90-QHB" secondAttribute="trailing" id="Dfb-WL-SyB"/>
                                             <constraint firstItem="pxU-90-QHB" firstAttribute="leading" secondItem="6Vp-9v-eOs" secondAttribute="leading" id="NY9-pI-FhR"/>
@@ -124,9 +124,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="Cat" destination="8k4-OA-Tgp" id="FvC-3U-6P2"/>
-                        <outlet property="DisplayLab" destination="pxU-90-QHB" id="fBY-ER-eIp"/>
-                        <outlet property="Scroll" destination="IuB-F7-dfy" id="M4U-j3-IYY"/>
+                        <outlet property="cat" destination="8k4-OA-Tgp" id="FwJ-ig-LYS"/>
+                        <outlet property="displayLab" destination="pxU-90-QHB" id="R8E-sA-51m"/>
+                        <outlet property="scroll" destination="IuB-F7-dfy" id="VME-Iq-cyR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YqL-Q8-nPN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -609,7 +609,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b9d-OS-a9Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="574" y="230"/>
+            <point key="canvasLocation" x="578" y="247"/>
         </scene>
     </scenes>
     <resources>

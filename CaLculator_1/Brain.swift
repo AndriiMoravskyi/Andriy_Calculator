@@ -112,12 +112,6 @@
                 opertionStack.popwithoutreturn()
                 numbersStack.push(value: "\(res)")
             }
-//            let calc = round(Double(numbersStack.pop())! * pow(10, 14)) / pow(10, 14)
-//            if calc == -calc {
-//                return 0
-//            }
-//            else {
-//                return calc            }
             return Double(numbersStack.pop())!
         }
         

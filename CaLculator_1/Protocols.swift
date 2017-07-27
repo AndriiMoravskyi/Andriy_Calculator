@@ -6,7 +6,7 @@
 //  Copyright © 2017 Andriy_Moravskyi. All rights reserved.
 //
 
-import Foundation
+    import Foundation
 
     enum Operation: Int{
          case pls = 10001
@@ -33,7 +33,7 @@ import Foundation
          case exp = 10022
          case ctg = 10023
          case clearS = 10024
-}
+    }
      
      protocol InputProtocol {
          func enterNum(_ number: Int)
