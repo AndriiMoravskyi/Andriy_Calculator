@@ -9,7 +9,7 @@
 import Foundation
 
 extension String {
-    //Operation priority
+    //operation priority
     var precedence: Int {
         get {
             switch self {

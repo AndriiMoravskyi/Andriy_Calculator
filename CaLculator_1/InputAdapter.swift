@@ -15,8 +15,8 @@ import Foundation
     let output = OutputAdapter.shared
     var input:String!
     var dottap = false
-    var ParenthesesCount = 0
-    var Calculation = false
+    var parenthesesCount = 0
+    var calculation = false
 //function wich validate enter of number
 func enterNum(_ number: Int){
         if input == nil || input == "0" {
@@ -27,7 +27,7 @@ func enterNum(_ number: Int){
         } else {
             input = input + "\(number)"
         }
-    Calculation = false
+    calculation = false
     brain.enterEquation(equation: input)
     
     }
@@ -39,7 +39,7 @@ func enterUtility(_ symbol: Operation){
         
         case .pls :
             dottap = false
-            Calculation = true
+            calculation = true
             if input == nil || input == "" || input == "0"{
                 input = ""
             }
@@ -63,7 +63,7 @@ func enterUtility(_ symbol: Operation){
         
         case .mns :
             dottap = false
-            Calculation = true
+            calculation = true
             if input == nil || input == "" || input == "0"
             {
                 input = "-"
@@ -79,7 +79,7 @@ func enterUtility(_ symbol: Operation){
             brain.enterEquation(equation: input)
         
         case .mul :
-            Calculation = true
+            calculation = true
             dottap = false
             if input == nil || input == "" || input == "0"{
                 input = ""
@@ -104,7 +104,7 @@ func enterUtility(_ symbol: Operation){
         
         case .div :
             dottap = false
-            Calculation = true
+            calculation = true
             if input == nil || input == "" || input == "0"{
                 input = ""
             }
@@ -128,7 +128,7 @@ func enterUtility(_ symbol: Operation){
         
         case .pow :
             dottap = false
-            Calculation = true
+            calculation = true
             if input == nil || input == "" || input == "0"{
                 input = ""
             }
@@ -152,13 +152,13 @@ func enterUtility(_ symbol: Operation){
         
         case .sqrt :
             dottap = false
-            Calculation = true
+            calculation = true
             if input == nil || input == "" || input == "0" {
                 input = "√"
             }
             else  if input.characters.last == "√" {
                 input = input + ("(√")
-                ParenthesesCount = ParenthesesCount + 1
+                parenthesesCount = parenthesesCount + 1
             }
             else if input.characters.last! >= "0" && input.characters.last! <= "9" || input.characters.last == "π" || input.characters.last == "e"
                 || input.characters.last == "!" || input.characters.last == ")"
@@ -172,7 +172,7 @@ func enterUtility(_ symbol: Operation){
         
         case .sin :
             dottap = false
-            Calculation = true
+            calculation = true
             if input == nil || input == "" || input == "0"{
                 input = "sin("
             }
@@ -182,12 +182,12 @@ func enterUtility(_ symbol: Operation){
             else if input.characters.last != "." {
                 input = input + ("sin(")
             }
-            ParenthesesCount = ParenthesesCount + 1
+            parenthesesCount = parenthesesCount + 1
             brain.enterEquation(equation: input)
         
         case .cos :
             dottap = false
-            Calculation = true
+            calculation = true
             if input == nil || input == "" || input == "0"
             {input = "cos("}
             else if input.characters.last! >= "0" && input.characters.last! <= "9" || input.characters.last == "π" || input.characters.last == "e"
@@ -197,12 +197,12 @@ func enterUtility(_ symbol: Operation){
             else if input.characters.last != "." {
                 input = input + ("cos(")
             }
-            ParenthesesCount = ParenthesesCount + 1
+            parenthesesCount = parenthesesCount + 1
             brain.enterEquation(equation: input)
         
         case .tan :
             dottap = false
-            Calculation = true
+            calculation = true
             if input == nil || input == "" || input == "0"
             {input = "tan("}
             else if input.characters.last! >= "0" && input.characters.last! <= "9" || input.characters.last == "π" || input.characters.last == "e"
@@ -211,12 +211,12 @@ func enterUtility(_ symbol: Operation){
             else if input.characters.last != "." {
                 input = input + ("tan(")
             }
-            ParenthesesCount = ParenthesesCount + 1
+            parenthesesCount = parenthesesCount + 1
             brain.enterEquation(equation: input)
         
         case .ctg :
             dottap = false
-            Calculation = true
+            calculation = true
             if input == nil || input == "" || input == "0"
             {input = "ctg("}
             else if input.characters.last! >= "0" && input.characters.last! <= "9" || input.characters.last == "π" || input.characters.last! == "e"
@@ -225,12 +225,12 @@ func enterUtility(_ symbol: Operation){
             else if input.characters.last != "." {
                 input = input + ("ctg(")
             }
-            ParenthesesCount = ParenthesesCount + 1
+            parenthesesCount = parenthesesCount + 1
             brain.enterEquation(equation: input)
        
         case .exp :
             dottap = false
-            Calculation = true
+            calculation = true
             if input == nil || input == "" || input == "0"
             {input = "еxp("}
             else if input.characters.last! >= "0" && input.characters.last! <= "9" || input.characters.last == "π" || input.characters.last! == "e"
@@ -239,12 +239,12 @@ func enterUtility(_ symbol: Operation){
             else if input.characters.last != "." {
                 input = input + ("еxp(")
             }
-            ParenthesesCount = ParenthesesCount + 1
+            parenthesesCount = parenthesesCount + 1
             brain.enterEquation(equation: input)
         
         case .log :
             dottap = false
-            Calculation = true
+            calculation = true
             if input == nil || input == "" || input == "0"
             {input = "ln("}
             else if input.characters.last! >= "0" && input.characters.last! <= "9" || input.characters.last == "π" || input.characters.last! == "e"
@@ -254,12 +254,12 @@ func enterUtility(_ symbol: Operation){
             else if input.characters.last != "."{
                 input = input + ("ln(")
             }
-            ParenthesesCount = ParenthesesCount + 1
+            parenthesesCount = parenthesesCount + 1
             brain.enterEquation(equation: input)
         
         case .log10 :
             dottap = false
-            Calculation = true
+            calculation = true
             if input == nil || input == "" || input == "0"
             {input = "log("}
             else if input.characters.last! >= "0" && input.characters.last! <= "9" || input.characters.last == "π" || input.characters.last! == "e"
@@ -268,7 +268,7 @@ func enterUtility(_ symbol: Operation){
             else if input.characters.last != "." {
                 input = input + ("log(")
             }
-            ParenthesesCount = ParenthesesCount + 1
+            parenthesesCount = parenthesesCount + 1
             brain.enterEquation(equation: input)
         
         case .leftBracket :if input == nil || input == "" || input == "0" {
@@ -279,7 +279,7 @@ func enterUtility(_ symbol: Operation){
         else{
             input = input + ("(")}
             brain.enterEquation(equation: input)
-            ParenthesesCount = ParenthesesCount + 1
+            parenthesesCount = parenthesesCount + 1
         
         case .rightBracket :
         if input == nil || input == "" || input == "0"{
@@ -291,12 +291,12 @@ func enterUtility(_ symbol: Operation){
                      }
         else if input.characters.last != "("{
             input = input + (")")
-            ParenthesesCount = ParenthesesCount - 1
+            parenthesesCount = parenthesesCount - 1
         }
         brain.enterEquation(equation: input)
    
         case .pi :
-            Calculation = false
+            calculation = false
             if input == nil || input == "" || input == "0" {
                 input = "π"
             }
@@ -311,7 +311,7 @@ func enterUtility(_ symbol: Operation){
             brain.enterEquation(equation: input)
         
         case .e :
-            Calculation = false
+            calculation = false
             if input == nil || input == "" || input == "0"
             {input = "e"}
             else if input.characters.last! >= "0" && input.characters.last! <= "9" || input.characters.last == "π" || input.characters.last! == "e"
@@ -329,17 +329,17 @@ func enterUtility(_ symbol: Operation){
            brain.enterEquation(equation: input)
         
         case .equal :
-            if input == nil || input == "" || input == "0" || Calculation
+            if input == nil || input == "" || input == "0" || calculation
             {
                 break
             }
-            else if ParenthesesCount == 0 && !Calculation {
+            else if parenthesesCount == 0 && !calculation {
             input = ""
-            brain.Caculation(calculation: {result in input = result})
+            brain.caculation(calculation: {result in input = result})
             }
-            else if ParenthesesCount != 0 {
+            else if parenthesesCount != 0 {
                 output.presentResult(result: "Parentheses error")
-                ParenthesesCount = 0
+                parenthesesCount = 0
                 input = ""}
             dottap = false
         
@@ -359,7 +359,7 @@ func enterUtility(_ symbol: Operation){
         case.clearS :
             if input.characters.count >= 1 {
                 if input.characters.last == "(" {
-                        ParenthesesCount = ParenthesesCount - 1
+                        parenthesesCount = parenthesesCount - 1
                         input.characters.removeLast()
                         if let last = input.characters.last{
                             switch last{
@@ -387,7 +387,7 @@ func enterUtility(_ symbol: Operation){
                         }
                      }
                      else if input.characters.last == ")" {
-                            ParenthesesCount = ParenthesesCount + 1
+                            parenthesesCount = parenthesesCount + 1
                             input.characters.removeLast()
                             brain.enterEquation(equation: input)
                         }

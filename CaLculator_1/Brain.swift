@@ -8,21 +8,21 @@
     
     import Foundation
     
-    let  Pi = round(Double.pi * pow(10, 10)) / pow(10, 10)
+    let  pi = round(Double.pi * pow(10, 10)) / pow(10, 10)
     
     class Brain: Model {
         static let shared = Brain()
-        let output = OutputAdapter.shared 
+        let output = OutputAdapter.shared
         var equation: String!
         func enterEquation(equation: String) {
             self.equation = equation
             output.presentResult(result: equation)
         }
         // function wich get result from parser and give it to output adapter
-        func Caculation(calculation: (String)->()){
-            let Mod = Change(input: equation)
-            let parser = infixparser()
-            output.presentResult(result: String(parser.solve(expression: Mod).clean))
+        func caculation(calculation: (String)->()){
+            let result = change(input: equation)
+            let parser = Infixparser()
+            output.presentResult(result: String(parser.solve(expression: result).clean))
         }
     }
     
@@ -59,9 +59,15 @@
             return temp
         }
         
+        func popwithoutreturn(){
+            if selfvalue.count != 0 {
+                selfvalue.remove(at: selfvalue.count-1)
+            }
+        }
+
     }
     // class wich parse our expression and return result of calculaions
-    class infixparser {
+    class Infixparser {
         
         func solve( expression: String) -> Double {
             let expression = expression
@@ -78,88 +84,89 @@
                         while opertionStack.peek != "(" {
                             if !opertionStack.empty && opertionStack.peek.precedence >= token.precedence {
                                 var res = 0.0
-                                res = Simplecalculation(Operationsymbol: opertionStack, Operands: numbersStack)
+                                res = simpleCalculation(operationsymbol: opertionStack, operands: numbersStack)
                                 numbersStack.push(value: "\(res)")
                             }
-                            _ = opertionStack.pop()
+                             opertionStack.popwithoutreturn()
                         }
-                        _ = opertionStack.pop()
+                         opertionStack.popwithoutreturn()
                     }
                     else if token != "(" && token != ")" && opertionStack.peek != "(" {
                         while !opertionStack.empty && opertionStack.peek != "(" && opertionStack.peek.precedence <= token.precedence  {
                             var res = 0.0
-                            res = Simplecalculation(Operationsymbol: opertionStack, Operands: numbersStack)
-                            _ = opertionStack.pop()
+                            res = simpleCalculation(operationsymbol: opertionStack, operands: numbersStack)
+                             opertionStack.popwithoutreturn()
                             
                             numbersStack.push(value: "\(res)")
                         }
                     }
                     opertionStack.push(value: token)
                     if opertionStack.peek == ")"{
-                        _ = opertionStack.pop()
+                         opertionStack.popwithoutreturn()
                     }
                 }
             }
             while !opertionStack.empty {
                 var res = 0.0
-                res = Simplecalculation(Operationsymbol: opertionStack, Operands: numbersStack)
-                _ = opertionStack.pop()
+                res = simpleCalculation(operationsymbol: opertionStack, operands: numbersStack)
+                opertionStack.popwithoutreturn()
                 numbersStack.push(value: "\(res)")
             }
-            let calc = round(Double(numbersStack.pop())! * pow(10, 10)) / pow(10, 10)
-            if calc == -calc {
-                return 0
-            }
-            else {
-                return calc            }
+//            let calc = round(Double(numbersStack.pop())! * pow(10, 14)) / pow(10, 14)
+//            if calc == -calc {
+//                return 0
+//            }
+//            else {
+//                return calc            }
+            return Double(numbersStack.pop())!
         }
         
     }
     // function wich do calculations
-    func Simplecalculation (Operationsymbol : Stack, Operands : Stack)-> Double
+    func simpleCalculation (operationsymbol : Stack, operands : Stack)-> Double
     {
         var res = 0.0
-        switch Operationsymbol.peek {
+        switch operationsymbol.peek {
         case "+":
-            res = Double(Operands.pop())! + Double(Operands.pop())!
+            res = Double(operands.pop())! + Double(operands.pop())!
         case "-":
-            if Double(Operands.selfvalue[Operands.selfvalue.count-2]) != nil {
-                res = Double(Operands.selfvalue[Operands.selfvalue.count-2])! - Double(Operands.pop())!
-                _ = Operands.pop()}
-            else if Operands.selfvalue[Operands.selfvalue.count-2] == ""  {
-                res = -Double(Operands.pop())!
-                _ = Operands.pop()
+            if Double(operands.selfvalue[operands.selfvalue.count-2]) != nil {
+                res = Double(operands.selfvalue[operands.selfvalue.count-2])! - Double(operands.pop())!
+                _ = operands.pop()}
+            else if operands.selfvalue[operands.selfvalue.count-2] == ""  {
+                res = -Double(operands.pop())!
+                 operands.popwithoutreturn()
             }
             else {
-                res = -Double(Operands.pop())!
+                res = -Double(operands.pop())!
             }
         case "^":
-            res = pow (Double(Operands.selfvalue[Operands.selfvalue.count-2])!, Double(Operands.pop())!)
-            _ = Operands.pop()
+            res = pow (Double(operands.selfvalue[operands.selfvalue.count-2])!, Double(operands.pop())!)
+             operands.popwithoutreturn()
         case "×":
-            res = Double(Operands.pop())! * Double(Operands.pop())!
+            res = Double(operands.pop())! * Double(operands.pop())!
         case "÷":
-            res = Double(Operands.selfvalue[Operands.selfvalue.count-2])! / Double(Operands.pop())!
-            _ = Operands.pop()
+            res = Double(operands.selfvalue[operands.selfvalue.count-2])! / Double(operands.pop())!
+             operands.popwithoutreturn()
         case "√":
-            res = sqrt(Double(Operands.pop())!)
+            res = sqrt(Double(operands.pop())!)
         case "еxp":
-            res = exp(Double(Operands.pop())!)
+            res = exp(Double(operands.pop())!)
         case "^":
-            res = pow (Double(Operands.selfvalue[Operands.selfvalue.count-2])!, Double(Operands.pop())!)
-            _ = Operands.pop()
+            res = pow (Double(operands.selfvalue[operands.selfvalue.count-2])!, Double(operands.pop())!)
+             operands.popwithoutreturn()
         case "sin":
-            res = sin(Double(Operands.pop())!)
+            res = sin(Double(operands.pop())!)
             res = round(res * pow(10, 10)) / pow(10, 10)
             if res == -res {
             res = 0
             }
         case "cos":
-            res = cos(Double(Operands.pop())!)
+            res = cos(Double(operands.pop())!)
         case "tan":
-            let temp = Double(Operands.pop())!
-            if temp != 0 && temp.truncatingRemainder(dividingBy: Pi/2) == 0 {
-                let k = temp/(Pi/2)
+            let temp = Double(operands.pop())!
+            if temp != 0 && temp.truncatingRemainder(dividingBy: pi/2) == 0 {
+                let k = temp/(pi/2)
                 if k.truncatingRemainder(dividingBy: 2) != 0 {
                   res = Double.nan
                 }
@@ -172,15 +179,15 @@
             }
            res = round(res * pow(10, 10)) / pow(10, 10)
         case "ctg":
-            let temp = Double(Operands.pop())!
-            if temp.truncatingRemainder(dividingBy: Pi) == 0 {
+            let temp = Double(operands.pop())!
+            if temp.truncatingRemainder(dividingBy: pi) == 0 {
                 res = Double.nan
             }
             else {
                 res = round(1/tan(temp) * pow(10, 10)) / pow(10, 10)
             }
         case "!" :
-            let temp = Double(Operands.pop())!
+            let temp = Double(operands.pop())!
             let temp2 = Int64(temp)
             if temp2 >= 21 {
                 res = Double.infinity
@@ -193,9 +200,9 @@
                 }
             }
         case "ln" :
-            res = log(Double(Operands.pop())!)
+            res = log(Double(operands.pop())!)
         case "log" :
-            res = log(Double(Operands.pop())!)/log(10.0)
+            res = log(Double(operands.pop())!)/log(10.0)
         default:
             res = 0
         }
@@ -210,41 +217,41 @@
     }
     
     // function that splits input expressinon with spaces
-    func Change (input : String) -> String {
-        var Mod =  input.replacingOccurrences(of: "×", with: " × ")
-        var Mod1 = Mod
-        Mod = Mod1.replacingOccurrences(of: "÷", with: " ÷ ")
-        Mod1 = Mod
-        Mod = Mod1.replacingOccurrences(of: "^", with: " ^ ")
-        Mod1 = Mod
-        Mod = Mod1.replacingOccurrences(of: "cos", with: "cos ")
-        Mod1 = Mod
-        Mod = Mod1.replacingOccurrences(of: "sin", with: "sin ")
-        Mod1 = Mod
-        Mod = Mod1.replacingOccurrences(of: "tan", with: "tan ")
-        Mod1 = Mod
-        Mod = Mod1.replacingOccurrences(of: "ctg", with: "ctg ")
-        Mod1 = Mod
-        Mod = Mod1.replacingOccurrences(of: "ln", with: "ln ")
-        Mod1 = Mod
-        Mod = Mod1.replacingOccurrences(of: "log", with: "log ")
-        Mod1 = Mod
-        Mod = Mod1.replacingOccurrences(of: "π", with: "\(Pi)")
-        Mod1 = Mod
-        Mod = Mod1.replacingOccurrences(of: "e", with: "\(M_E)")
-        Mod1 = Mod
-        Mod = Mod1.replacingOccurrences(of: "еxp", with: "еxp ")
-        Mod1 = Mod
-        Mod = Mod1.replacingOccurrences(of: "+", with: " + ")
-        Mod1 = Mod
-        Mod = Mod1.replacingOccurrences(of: "√", with: "√ ")
-        Mod1 = Mod
-        Mod = Mod1.replacingOccurrences(of: "-", with: " - ")
-        Mod1 = Mod
-        Mod = Mod1.replacingOccurrences(of: "(", with: "( ")
-        Mod1 = Mod
-        Mod = Mod1.replacingOccurrences(of: ")", with: " )")
-        Mod1 = Mod
-        Mod = Mod1.replacingOccurrences(of: "!", with: " !")
-        return Mod
+    func change (input : String) -> String {
+        var resultString =  input.replacingOccurrences(of: "×", with: " × ")
+        var temporaryString = resultString
+        resultString = temporaryString.replacingOccurrences(of: "÷", with: " ÷ ")
+        temporaryString = resultString
+        resultString = temporaryString.replacingOccurrences(of: "^", with: " ^ ")
+        temporaryString = resultString
+        resultString = temporaryString.replacingOccurrences(of: "cos", with: "cos ")
+        temporaryString = resultString
+        resultString = temporaryString.replacingOccurrences(of: "sin", with: "sin ")
+        temporaryString = resultString
+        resultString = temporaryString.replacingOccurrences(of: "tan", with: "tan ")
+        temporaryString = resultString
+        resultString = temporaryString.replacingOccurrences(of: "ctg", with: "ctg ")
+        temporaryString = resultString
+        resultString = temporaryString.replacingOccurrences(of: "ln", with: "ln ")
+        temporaryString = resultString
+        resultString = temporaryString.replacingOccurrences(of: "log", with: "log ")
+        temporaryString = resultString
+        resultString = temporaryString.replacingOccurrences(of: "π", with: "\(pi)")
+        temporaryString = resultString
+        resultString = temporaryString.replacingOccurrences(of: "e", with: "\(M_E)")
+        temporaryString = resultString
+        resultString = temporaryString.replacingOccurrences(of: "еxp", with: "еxp ")
+        temporaryString = resultString
+        resultString = temporaryString.replacingOccurrences(of: "+", with: " + ")
+        temporaryString = resultString
+        resultString = temporaryString.replacingOccurrences(of: "√", with: "√ ")
+        temporaryString = resultString
+        resultString = temporaryString.replacingOccurrences(of: "-", with: " - ")
+        temporaryString = resultString
+        resultString = temporaryString.replacingOccurrences(of: "(", with: "( ")
+        temporaryString = resultString
+        resultString = temporaryString.replacingOccurrences(of: ")", with: " )")
+        temporaryString = resultString
+        resultString = temporaryString.replacingOccurrences(of: "!", with: " !")
+        return resultString
     }
