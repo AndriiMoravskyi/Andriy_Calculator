@@ -6,13 +6,13 @@
 //  Copyright © 2017 Andriy_Moravskyi. All rights reserved.
 //
 
-    import Foundation
+import Foundation
 
-        class OutputAdapter: OutputProtocol {
-            static let shared = OutputAdapter()
-            var display: DisplayController?
+class OutputAdapter: OutputProtocol {
+    static let shared = OutputAdapter()
+    var display: DisplayController?
 
-            func presentResult(result: String){
-            display?.presentResult(value: result)
-            }
-        }
+    func presentResult(result: String){
+    display?.presentResult(value: result)
+    }
+}

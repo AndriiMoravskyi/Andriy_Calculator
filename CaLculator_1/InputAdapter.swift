@@ -6,17 +6,17 @@
 //  Copyright © 2017 Andriy_Moravskyi. All rights reserved.
 //
 
-    import Foundation
+import Foundation
 
-    class InputAdapter: InputProtocol
-     {
-        static let shared = InputAdapter()
-        let brain = Brain.shared
-        let output = OutputAdapter.shared
-        var input:String!
-        var dottap = false
-        var parenthesesCount = 0
-        var calculation = false
+class InputAdapter: InputProtocol
+{
+    static let shared = InputAdapter()
+    let brain = Brain.shared
+    let output = OutputAdapter.shared
+    var input:String!
+    var dottap = false
+    var parenthesesCount = 0
+    var calculation = false
     //function wich validate enter of number
     func enterNum(_ number: Int){
             if input == nil || input == "0" {
@@ -34,9 +34,7 @@
      
     // function wich validate enter of operaions
     func enterUtility(_ symbol: Operation){
-        
-            switch symbol {
-            
+        switch symbol {
             case .pls :
                 dottap = false
                 calculation = true
@@ -52,11 +50,11 @@
                     else{
                         input = input + ("+")}
                 }
-                else if input.characters.last == "("{
+                else if input.characters.last == "(" || input.characters.last == "√"{
                     break
                 }
 
-                else if input.characters.last != "√"  {
+                else {
                     input = input + ("+")
                 }
                 brain.enterEquation(equation: input)
@@ -93,11 +91,11 @@
                     else{
                         input = input + ("×")}
                 }
-                else if input.characters.last == "("{
+                else if input.characters.last == "(" || input.characters.last == "√" {
                     break
                 }
                     
-                else if input.characters.last != "√"  {
+                else   {
                     input = input + ("×")
                 }
                 brain.enterEquation(equation: input)
@@ -117,11 +115,11 @@
                     else{
                         input = input + ("÷")}
                 }
-                else if input.characters.last == "("{
+                else if input.characters.last == "(" || input.characters.last == "√" {
                     break
                 }
 
-                else if input.characters.last != "√" {
+                else  {
                 input = input + ("÷")
                 }
                 brain.enterEquation(equation: input)
@@ -271,29 +269,32 @@
                 parenthesesCount = parenthesesCount + 1
                 brain.enterEquation(equation: input)
             
-            case .leftBracket :if input == nil || input == "" || input == "0" {
+            case .leftBracket :
+                if input == nil || input == "" || input == "0" {
                 input = "("}
-            else if input.characters.last! >= "0" && input.characters.last! <= "9" || input.characters.last == "π" || input.characters.last! == "e"
-                || input.characters.last! == "!"{
-             input = input + ("×(")        }
-            else{
-                input = input + ("(")}
-                brain.enterEquation(equation: input)
-                parenthesesCount = parenthesesCount + 1
-            
+                else if input.characters.last! >= "0" && input.characters.last! <= "9" || input.characters.last == "π" || input.characters.last! == "e"
+                    || input.characters.last! == "!"{
+                 input = input + ("×(")
+                }
+                else{
+                    input = input + ("(")
+                }
+                    brain.enterEquation(equation: input)
+                    parenthesesCount = parenthesesCount + 1
+                
             case .rightBracket :
-            if input == nil || input == "" || input == "0"{
-                    input = "0"
-            }
-            else if input.characters.last == "+" || input.characters.last == "-" || input.characters.last == "×" || input.characters.last == "÷"
-                || input.characters.last == "^"{
-               break
-                         }
-            else if input.characters.last != "("{
-                input = input + (")")
-                parenthesesCount = parenthesesCount - 1
-            }
-            brain.enterEquation(equation: input)
+                if input == nil || input == "" || input == "0"{
+                        input = "0"
+                }
+                else if input.characters.last == "+" || input.characters.last == "-" || input.characters.last == "×" || input.characters.last == "÷"
+                    || input.characters.last == "^" {
+                   break
+                             }
+                else if input.characters.last != "(" {
+                    input = input + (")")
+                    parenthesesCount = parenthesesCount - 1
+                }
+                brain.enterEquation(equation: input)
        
             case .pi :
                 calculation = false
@@ -396,15 +397,9 @@
                                 input.characters.removeLast()
                                 brain.enterEquation(equation: input)
                             }
-                    
-                
                     brain.enterEquation(equation: input)
-                    
                 }
-                
-           
             default : break
-           
             }
         }
         func validateDot() {
@@ -421,4 +416,4 @@
                 }
             }
         }
-    }
+}
