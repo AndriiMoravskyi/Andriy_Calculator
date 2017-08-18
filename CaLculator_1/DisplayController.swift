@@ -18,6 +18,15 @@ class DisplayController: UIViewController {
         if displayLab.text!.characters.count < value.characters.count{
             scroll.scrollRectToVisible(displayLab.bounds, animated: true)
         }
+        if UIScreen.main.bounds.height > 750 {
+        displayLab.font = displayLab.font.withSize(60)
+        }
+        else if UIScreen.main.bounds.height < 670 && UIDevice.current.orientation.isLandscape{
+            displayLab.font = displayLab.font.withSize(35)
+        }
+        else {
+            displayLab.font = displayLab.font.withSize(45)
+        }
         displayLab.text = value
     }
     override func viewDidLoad() {

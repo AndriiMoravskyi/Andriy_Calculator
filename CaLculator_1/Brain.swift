@@ -175,6 +175,9 @@ func simpleCalculation (operationsymbol : Stack, operands : Stack)-> Double
         }
         else {
             res = round(1/tan(temp) * pow(10, 10)) / pow(10, 10)
+            if res == -res {
+                res = 0
+            }
         }
     case "!" :
         let temp = Double(operands.pop())!
@@ -200,7 +203,7 @@ func simpleCalculation (operationsymbol : Stack, operands : Stack)-> Double
 }
 // function to calculate factorial
 func factorial(n: Int64) -> Int64 {
-    if n == 0{
+    if n == 0 {
         return 1
     }
     return n * factorial(n: n-1)

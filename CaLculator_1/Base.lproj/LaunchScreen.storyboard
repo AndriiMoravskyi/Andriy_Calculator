@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -21,25 +21,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mathematics-digital-indicates-high-tec-tech-numbers-showing-computing-42011542" translatesAutoresizingMaskIntoConstraints="NO" id="en0-pA-2CS">
-                                <rect key="frame" x="0.0" y="30" width="414" height="706"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Calculator2.png" translatesAutoresizingMaskIntoConstraints="NO" id="en0-pA-2CS">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="en0-pA-2CS" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="6LM-8x-TUE"/>
                             <constraint firstAttribute="trailing" secondItem="en0-pA-2CS" secondAttribute="trailing" id="7uW-az-ht2"/>
+                            <constraint firstItem="en0-pA-2CS" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" id="D25-VB-1Gv"/>
+                            <constraint firstItem="en0-pA-2CS" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="E4i-im-Qdb"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="en0-pA-2CS" secondAttribute="bottom" id="FSM-Dz-bEc"/>
-                            <constraint firstItem="en0-pA-2CS" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="10" id="kZ1-MW-FQ3"/>
+                            <constraint firstItem="en0-pA-2CS" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="jZ3-hX-xmo"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="329" y="246"/>
+            <point key="canvasLocation" x="328.98550724637681" y="245.38043478260872"/>
         </scene>
     </scenes>
     <resources>
-        <image name="mathematics-digital-indicates-high-tec-tech-numbers-showing-computing-42011542" width="400" height="300"/>
+        <image name="Calculator2.png" width="250" height="358"/>
     </resources>
 </document>

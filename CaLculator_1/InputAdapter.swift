@@ -358,7 +358,10 @@ class InputAdapter: InputProtocol
                 brain.enterEquation(equation: "0")
             
             case.clearS :
-                if input.characters.count >= 1 {
+                if  input == nil || input == "0" || input == "" {
+                    break
+                }
+                else if input.characters.count >= 1 {
                     if input.characters.last == "(" {
                             parenthesesCount = parenthesesCount - 1
                             input.characters.removeLast()
@@ -399,7 +402,7 @@ class InputAdapter: InputProtocol
                             }
                     brain.enterEquation(equation: input)
                 }
-            default : break
+                           default : break
             }
         }
         func validateDot() {
