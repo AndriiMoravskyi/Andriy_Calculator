@@ -9,10 +9,9 @@
 import UIKit
 
 class PanelController: UIViewController {
-
     var display: DisplayController!
     var keyboard: KeyboardController!
-    let input = IntputAdapter.shared
+    let input = InputAdapter.shared
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -20,7 +19,8 @@ class PanelController: UIViewController {
         if segue.identifier == "DisplayControllerSegue", let controller = segue.destination as? DisplayController {
             
             display = controller
-        } else if segue.identifier == "KeyboardControllerSegue", let controller = segue.destination as? KeyboardController {
+        }
+        else if segue.identifier == "KeyboardControllerSegue", let controller = segue.destination as? KeyboardController {
             
             keyboard = controller
             keyboard.onNumTap = { [weak self] num in
@@ -29,13 +29,13 @@ class PanelController: UIViewController {
             keyboard.SymbolTap = { [weak self] symbol in
                 self?.onSymbolTap(symbol: symbol)
         }
-    }
+      }
     }
     func onNumericTap(num: Int) {
         input.enterNum(num)
     }
-   func onSymbolTap(symbol: Int) {
-            input.enterUtility(symbol)
+    func onSymbolTap(symbol: Int) {
+        input.enterUtility(Operation(rawValue: symbol)!)
         }
 }
 

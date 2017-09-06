@@ -1,4 +1,3 @@
-
 //
 //  DisplayController.swift
 //  CaLculator_1
@@ -9,21 +8,46 @@
 
 import UIKit
 
-    class DisplayController: UIViewController {
-        
-        
-        @IBOutlet weak var DisplayLab: UILabel!
-     
-       let output = OutputAdapter.shared
-        
-        func presentResult(value: String) {
-           DisplayLab.text = value
+class DisplayController: UIViewController {
+    @IBOutlet weak var cat: UIImageView!
+    @IBOutlet weak var scroll: UIScrollView!
+    @IBOutlet weak var displayLab: UILabel!
+    let output = OutputAdapter.shared
+    
+    func presentResult(value: String) {
+        if displayLab.text!.characters.count < value.characters.count{
+            scroll.scrollRectToVisible(displayLab.bounds, animated: true)
         }
-        
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            
-            output.display = self
+        if UIScreen.main.bounds.height > 750 {
+        displayLab.font = displayLab.font.withSize(60)
         }
-   
+        else if UIScreen.main.bounds.height < 670 && UIDevice.current.orientation.isLandscape{
+            displayLab.font = displayLab.font.withSize(35)
+        }
+        else {
+            displayLab.font = displayLab.font.withSize(45)
+        }
+        displayLab.text = value
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        output.display = self
+        
+        // NotoficationCenter handler
+        let presentCatNotificarionName = Notification.Name("PresentCatNotification")
+        NotificationCenter.default.addObserver(self, selector: #selector(presentCat), name: presentCatNotificarionName, object: nil)
+    }
+    //function wich present image
+    func presentCat() {
+        view.bringSubview(toFront: cat)
+        
+        UIView.animate(withDuration: 0.0, animations: {
+            self.cat.alpha = 1.0
+        }) { (true) in
+            UIView.animate(withDuration: 3.0, animations: {
+                self.cat.alpha = 0.0
+            })
+        }
+    }
 }
